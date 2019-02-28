@@ -1,0 +1,140 @@
+<style>
+
+.top-bar {
+    background: #555;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 10px 0;
+}
+
+.top-bar .contact-info {
+    margin-right: 20px;
+}
+
+.top-bar ul {
+    margin-bottom: 0;
+}
+
+.top-bar .contact-info a {
+    font-size: 0.8rem;
+}
+
+.top-bar ul.social-custom {
+    margin-left: 20px;
+}
+.top-bar ul {
+    margin-bottom: 0;
+}
+
+.top-bar a.login-btn i, .top-bar a.signup-btn i {
+    margin-right: 10px;
+}
+
+.top-bar ul.social-custom a:hover {
+    background: #4fbfa8;
+    color: #fff;
+}
+.top-bar ul.social-custom a {
+    text-decoration: none !important;
+    font-size: 0.7rem;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    color: #999;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0;
+}
+a:focus, a:hover {
+    color: #348e7b;
+    text-decoration: underline;
+}
+.top-bar a.login-btn, .top-bar a.signup-btn {
+    color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none !important;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+</style>
+
+<div ng-init="onload()">
+    <div class="top-bar">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-6 d-md-block d-none">
+            <p ng-if="Alldetails" >
+               Hospital Name {{Alldetails.name}}
+            </p>
+            
+  
+          </div>
+          <h2 ></h2><hr>
+          <div class="col-md-6">
+           
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+        <div class="container" >
+          <div class="col-md-2">
+            <label>Service Name :
+              <input list="browsers" class="form-control"  ng-model="name" name="myBrowser" /></label>
+              <datalist  id="browsers">
+                <option value="OPD Consulation">
+                <option value="Psychometric Assement">
+                <option value="Counseling">
+              </datalist>
+          </div>
+          <div class="col-md-2">
+            <label>Service Charges:
+              <input type="number"  class="form-control"  ng-model="charge"  /></label>
+              <input type="button" ng-click="create()"  value="Add Service" class="btn btn-info" >
+          </div>
+          <div  class="col-md-8">
+            <table border="1" class="table table-light">
+              <thead class="thead-light">
+                <tr>
+                  <th>SN</th>
+                  <th>Service Name</th>
+                  <th>Charges</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody ng-if="Services" >
+                <tr ng-repeat="item in Services" >
+                  <td  >{{$index+1}}</td>
+                  <td  >{{item.name}}</td>
+                  <td  >{{item.charge}}</td>
+                  <td  >
+                    <!-- <input type="button" class="btn btn-success" ng-click="tab(item)" value="Edit"  > -->
+            <!-- <span class="glyphicon glyphicon-pencil" ng-click="test()" ></span>
+            <span class="glyphicon glyphicon-remove" ng-click="test()" ></span> -->
+            <button type="button" ng-click="tab(item)" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-pencil">edit</span> 
+            </button>
+            <button ng-click="delete(item._id)" type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-remove">delete</span> 
+            </button>
+            
+                  </td>
+                  <!-- <td ng-if="item._id!=bgloid">
+                    <input type="button" ng-click="delete(item._id)"  value="Delete"  class="btn btn-danger" ></td> -->
+                </tr>
+              </tbody>
+              <tfoot>
+                <!-- <tr>
+                  <th><input type="button" class="btn btn-primary" value="add services"></th>
+                </tr> -->
+              </tfoot>
+            </table>
+          </div>
+          
+          </div>

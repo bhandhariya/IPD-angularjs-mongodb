@@ -1,0 +1,123 @@
+<style>
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+</style>
+
+<h2 style="text-align: center;background-color: cornflowerblue" >Billing Page</h2>
+
+<md-content  layout-gt-sm="row" layout-padding>
+        <div>
+          <md-input-container>
+            <label>Title</label>
+            <input ng-model="name"   >
+          </md-input-container>
+          <md-button class="md-warn" ng-click="findbyname()"  >Search</md-button>
+        </div>
+</md-content>
+
+<div class="col-md-12" ng-if="data" ng-hide="raja" >
+        <table  class="table table-bordered ">
+          <thead class="thead-inverse">
+            <tr>
+              <th> Token No.</th>
+              <th>Patient Name<span class=" fas fa-user-tie"></span> </th>
+              <th>Gurdian Name <span class=" fa fa-user fa-2x"></span></th>
+              <th> E-Mail  <span class=" fa fa-book fa-2x"></span></th>
+              <th> Mobile  <span class="fa fa-phone fa-2x"></span></th>
+              <th>Patient Present</th>
+              <th>Actions</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+              <tr   ng-repeat="item in data">
+                <td scope="row">{{$index+1}}</td>
+                <td>{{item.first_name}} {{item.last_name}}</td>
+                <td>{{item.parent_name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.primary_contact_number}}</td>
+                <td>Yes</td>
+                <td>
+                  <input type="button" value="Generate Bill" class="btn btn-info" ng-click="test(item._id)" >
+                  <input type="button" value="View Previous Bills" class="btn btn-danger" ng-click="test1(item._id)"  >
+                </td>
+              </tr>
+             
+            </tbody>
+            
+        </table>
+      </div>
+
+
+      <div  ng-if="Services" ng-hide="saini" >
+           
+                 <div class="col-md-12">
+                   <div class="row col-md-12 col-md-offset-2 custyle">
+                     <table class="table table-striped custab">
+                     <thead>
+                     <!-- <a  class="btn btn-primary btn-xs pull-right">
+                       <select [(ngModel)]="somevalye" (change)="hello()" >
+                     <option *ngFor="let item of Services" [ngValue]="item" >{{item.name}}</option>
+                   </select>
+                 
+                       <b>+</b></a>
+                       <input type="button" value=" Add new categories" (click)="addnewcategories()"  >
+                       <td><input   style="margin-left:200px" type="button" value="Generate Bill" (click)="bill()"  class="btn btn-info"></td>
+                         <tr>
+                             <th>Item No.</th>
+                             <th>Service Name</th>
+                             <th>Service Charge</th>
+                             <th class="text-center">Action</th>
+                         </tr> -->
+
+                         <tr>
+                             <td>
+                                 <div class="form-group">
+                                     <label for="service">Service Name</label>
+                                     <select ng-model="somevalye._id" class="custom-select" name="" id="">
+                                         <option  ng-repeat="item in Services" value="{{item._id}}"  >{{item.name}}</option>
+                                     </select>
+                                 </div>
+                             </td>
+                             <td>
+                                 <input name="" id="" class="btn btn-primary" style="margin-top: 32px;" ng-click="addnewcategories()"  type="button" value="Add Service">
+                             </td>
+                             <td>
+                                    <input name="" id="" class="btn btn-primary" style="margin-top: 32px;margin-left: 450px" ng-click="bill()" type="button" value="Generate Bill">
+                             </td>
+                         </tr>
+                     </thead>
+                            <tr ng-repeat="item in detailsosService" >
+                                 <td>
+                                   {{$index+1}}
+                                 </td>
+                                 <td>
+                                   {{item.name}}
+                                 </td>
+                                 <td>
+                                     {{item.charge}}
+                                   </td>
+                                   <td>
+                                       <input type="button" value="delete" ng-click="deleteservicebyid(item._id)" class="btn btn-danger"  >
+                                     </td>
+                            </tr>
+                            <tr>
+                              <td></td>
+                              <td>total</td>
+                              <td *ngIf="totall">{{totall}}</td>
+                            </tr>
+                     </table>
+                     </div>
+                 </div>
+                </div>
+
+
