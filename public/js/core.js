@@ -1,4 +1,4 @@
-angular.module('myApp',['register','addservice','billing','ngRoute','ngMaterial']).config(
+angular.module('myApp',['register','addservice','billing','summury','ngRoute','ngMaterial']).config(
   function($routeProvider){
     $routeProvider.
     when("/addservice",{
@@ -16,8 +16,7 @@ angular.module('myApp',['register','addservice','billing','ngRoute','ngMaterial'
     }).
     when("/summury",{
       templateUrl : "/js/view/summury.html",
-      controller:function summuryctrl($scope){
-      }
+      controller:'summuryctrl'
     }).
     otherwise({
       template : "<h1>None</h1><p>Nothing has been selected</p>"
