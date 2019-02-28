@@ -120,6 +120,14 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
     $scope.raja;
     $scope.saini;
    
+    $scope.demo=function(){
+        $http.get('http://localhost:8080/hello').then(function successCallback(response){
+            
+           console.log(response)
 
+        },function errorCallback(response){
+            console.log(response)
+        })
+    }
      
  })
