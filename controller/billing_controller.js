@@ -69,3 +69,24 @@ exports.getAllbilling=function(req,res,next){
         }
     })
 }
+
+exports.billingbetweentwodays=function(req,res,next){
+    var data=req.body;
+    console.log(data);
+    Billing.find({
+        billing_date:{
+            $gt:data.startDate,
+            $lt:data.endDate
+        }
+    }).populate('hospital').populate('srervice').populate('patient').exec(function(err,result){
+        if(!err && result){
+            console.log(result)
+            res.send(result);
+            
+        }else{
+            res.send('error in finding day end data report please check after some time ')
+            console.log(err)
+        }
+    })
+
+}

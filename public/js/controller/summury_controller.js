@@ -3,6 +3,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
     $scope.today=$filter('date')(new Date(),'yyyy-MM-dd');
     $scope.selectDate;
     $scope.dayendData;
+    $scope.myname=false;
     $scope.id="5c5bc734f2c5b4290885181d";
     $scope.totolserviceAmount;
     $scope.getHospitalDetails=function(){
@@ -44,6 +45,31 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           },function errorCallback(response){
               console.log(response)
           }) 
+    }
+    $scope.twoDate=function(){
+        $scope.myname=true;
+    }
+    $scope.startDate;
+    $scope.endDate;
+    $scope.gettwoDayBilling=function(){
+        var startDate=$filter('date')($scope.startDate,'yyyy-MM-dd');
+        var endDate=$filter('date')($scope.endDate,'yyyy-MM-dd');
+        var obj={
+            startDate:startDate,
+            endDate:endDate
+        }
+        console.log(obj)
+        $http.post('http://localhost:3000/billing/billingbetweentwodays',obj).then(function successCallback(response){
+            $scope.dayendData=response.data;
+            console.log($scope.dayendData)
+            $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
+            console.log($scope.totolserviceAmount)
+        },function errorCallback(response){
+            console.log(response)
+        }) 
+    }
+    $scope.oneday=function(){
+        $scope.myname=false
     }
     
     

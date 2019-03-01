@@ -64,37 +64,28 @@
                    <div class="row col-md-12 col-md-offset-2 custyle">
                      <table class="table table-striped custab">
                      <thead>
-                     <!-- <a  class="btn btn-primary btn-xs pull-right">
-                       <select [(ngModel)]="somevalye" (change)="hello()" >
-                     <option *ngFor="let item of Services" [ngValue]="item" >{{item.name}}</option>
-                   </select>
-                 
-                       <b>+</b></a>
-                       <input type="button" value=" Add new categories" (click)="addnewcategories()"  >
-                       <td><input   style="margin-left:200px" type="button" value="Generate Bill" (click)="bill()"  class="btn btn-info"></td>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label for="service">Service Name</label>
+                                    <select ng-model="somevalye._id" class="custom-select" name="" id="">
+                                        <option  ng-repeat="item in Services" value="{{item._id}}"  >{{item.name}}</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+                                <input name="" id="" class="btn btn-primary" style="margin-top: 32px;" ng-click="addnewcategories()"  type="button" value="Add Service">
+                            </td>
+                            <td>
+                                   <input name="" id="" class="btn btn-primary" style="margin-top: 32px;margin-left: 450px" ng-click="bill()" type="button" value="Generate Bill">
+                            </td>
+                        </tr>
                          <tr>
                              <th>Item No.</th>
                              <th>Service Name</th>
                              <th>Service Charge</th>
                              <th class="text-center">Action</th>
-                         </tr> -->
-
-                         <tr>
-                             <td>
-                                 <div class="form-group">
-                                     <label for="service">Service Name</label>
-                                     <select ng-model="somevalye._id" class="custom-select" name="" id="">
-                                         <option  ng-repeat="item in Services" value="{{item._id}}"  >{{item.name}}</option>
-                                     </select>
-                                 </div>
-                             </td>
-                             <td>
-                                 <input name="" id="" class="btn btn-primary" style="margin-top: 32px;" ng-click="addnewcategories()"  type="button" value="Add Service">
-                             </td>
-                             <td>
-                                    <input name="" id="" class="btn btn-primary" style="margin-top: 32px;margin-left: 450px" ng-click="bill()" type="button" value="Generate Bill">
-                             </td>
-                         </tr>
+                         </tr> 
                      </thead>
                             <tr ng-repeat="item in detailsosService" >
                                  <td>
@@ -107,7 +98,7 @@
                                      {{item.charge}}
                                    </td>
                                    <td>
-                                       <input type="button" value="delete" ng-click="deleteservicebyid(item._id)" class="btn btn-danger"  >
+                                      <i class="fa fa-trash" ng-click="deleteservicebyid(item._id)" aria-hidden="true"></i>
                                      </td>
                             </tr>
                             <tr>

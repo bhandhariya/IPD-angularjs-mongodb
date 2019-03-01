@@ -1,3 +1,10 @@
+<style>
+#someid{
+    color: darkblue
+}
+</style>
+
+
 <div class="container" ng-init="getHospitalDetails()" >
     <div class="row">
         <div class="col-12">
@@ -5,25 +12,38 @@
                 <div class="card-body p-0">
                     <div class="row p-5">
                         <div class="col-md-6">
-                            <img width="150px" height="" src="../../images/logo.png">
+                            <img width="150px" height="" src="../../images/logo.png"><br><br><br>
+                            <md-datepicker type="date" ng-hide="myname" ng-model="selectDate"   ng-change="getDayBilling()"></md-datepicker>
+                           <br> <div ng-show="myname" >
+                                
+                                
+                            <div class="form-group">
+                              <label for="">Start Date</label>
+                              <md-datepicker type="date"  ng-model="startDate"    ></md-datepicker>
+                              
+                            </div>
+                            <div class="form-group">
+                                    <label for="">End Date</label>
+                                    <md-datepicker type="date"  ng-model="endDate"    ></md-datepicker>
+                                    
+                                  </div>
+
+
+                            </div>
+                            <input type="button" ng-hide="myname" value="Find Between two days" class="btn btn-info" ng-click="twoDate()" >
+                            <input type="button" ng-show="myname" value="Find One Day" class="btn btn-info" ng-click="oneday()" >
+                            
                         </div>
   
-                        <div class="col-md-6 text-right">
+                        <!-- <div class="col-md-6 text-right">
                             <p class="font-weight-bold mb-1">Invoice #550</p>
                             <p class="text-muted">Due to : {{today | date:'d/M/yy hh:mm' }}</p>
                             <p class="font-weight-bold mb-1">
                               
                               <md-datepicker type="date"  ng-model="selectDate"    ng-change="getDayBilling()"></md-datepicker>
                             </p>
-                        </div>
-                    </div>
-  
-                    
-  
-                    <div id="print-section" >
-  
-                    <div ng-if="Alldetails" class="row pb-5 p-5">
-                        <div class="col-md-6">
+                        </div> -->
+                        <div id="someid" class="col-md-6">
                             <p class="font-weight-bold mb-4">Hospital Information</p>
                             <p class="mb-1">{{Alldetails.name}}</p>
                             <p>{{Alldetails.address}}</p>
@@ -31,15 +51,30 @@
                             <p class="mb-1">{{Alldetails.pin}}</p>
                         </div>
   
-                        <div class="col-md-6 text-right">
+                    </div>
+  
+                    
+  
+                    <div id="print-section" >
+  
+                    <!-- <div ng-if="Alldetails" class="row pb-5 p-5"> -->
+                        <!-- <div class="col-md-6">
+                            <p class="font-weight-bold mb-4">Hospital Information</p>
+                            <p class="mb-1">{{Alldetails.name}}</p>
+                            <p>{{Alldetails.address}}</p>
+                            <p class="mb-1"> India</p>
+                            <p class="mb-1">{{Alldetails.pin}}</p>
+                        </div>
+   -->
+                        <!-- <div class="col-md-6 text-right">
                             <!-- <p class="font-weight-bold mb-4">Payment Details</p>
                             <p class="mb-1"><span class="text-muted">VAT: </span> 1425782</p>
                             <p class="mb-1"><span class="text-muted">VAT ID: </span> 10253642</p>
                             <p class="mb-1"><span class="text-muted">Payment Type: </span> Root</p>
                             <p class="mb-1"><span class="text-muted">Name: </span> John Doe</p> -->
-                        </div>
-                    </div>
-  
+                        <!-- </div>
+                    </div> -->
+
                     <div class="row p-5">
                         <div class="col-md-12">
                           <table class="table table-striped">

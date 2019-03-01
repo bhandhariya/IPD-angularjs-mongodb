@@ -15,6 +15,6 @@ router.post('/billingAtDayEnd',BillingController.dayEndBilling);
 
 router.post('/getAllbilling',BillingController.getAllbilling);
 
-
+router.post('/billingbetweentwodays',BillingController.billingbetweentwodays);
 
 module.exports = router;
