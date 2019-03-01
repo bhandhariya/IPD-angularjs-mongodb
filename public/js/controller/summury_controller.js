@@ -4,6 +4,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
     $scope.selectDate;
     $scope.dayendData;
     $scope.id="5c5bc734f2c5b4290885181d";
+    $scope.totolserviceAmount;
     $scope.getHospitalDetails=function(){
         var obj={
             id:$scope.id
@@ -24,6 +25,8 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
         $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
               console.log($scope.dayendData)
+              $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
+              console.log($scope.totolserviceAmount)
           },function errorCallback(response){
               console.log(response)
           })       
@@ -36,6 +39,8 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
               console.log($scope.dayendData)
+              $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
+              console.log($scope.totolserviceAmount)
           },function errorCallback(response){
               console.log(response)
           }) 

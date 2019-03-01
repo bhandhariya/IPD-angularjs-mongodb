@@ -17,7 +17,7 @@
 <md-content  layout-gt-sm="row" layout-padding>
         <div>
           <md-input-container>
-            <label>Title</label>
+            <label>Search by name</label>
             <input ng-model="name"   >
           </md-input-container>
           <md-button class="md-warn" ng-click="findbyname()"  >Search</md-button>
@@ -113,14 +113,9 @@
                             <tr>
                               <td></td>
                               <td>total</td>
-                              <td *ngIf="totall">{{totall}}</td>
+                              <td >{{tottal}}</td>
                             </tr>
                      </table>
                      </div>
                  </div>
                 </div>
-
-
-
-
-                <input type="button" value="clic"  ng-click="demo()" >

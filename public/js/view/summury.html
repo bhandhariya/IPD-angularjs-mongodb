@@ -12,8 +12,8 @@
                             <p class="font-weight-bold mb-1">Invoice #550</p>
                             <p class="text-muted">Due to : {{today | date:'d/M/yy hh:mm' }}</p>
                             <p class="font-weight-bold mb-1">
-                              select day
-                              <input type="date"  ng-model="selectDate"    ng-change="getDayBilling()"  >
+                              
+                              <md-datepicker type="date"  ng-model="selectDate"    ng-change="getDayBilling()"></md-datepicker>
                             </p>
                         </div>
                     </div>
@@ -120,5 +120,4 @@
     <div class="text-light mt-5 mb-5 text-center small">by : <a class="text-light" target="_blank" ></a></div>
   
   </div>
-  
   
