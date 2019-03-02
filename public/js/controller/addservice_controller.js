@@ -15,7 +15,6 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         name:$scope.name
        }
        $http.post('http://localhost:3000/service/createService',obj).then(function successCallBack(response){
-            console.log(response)
             alert('done')
             $scope.fetchAllPatients()
         },function errorCallBack(response){
@@ -36,7 +35,6 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         }
         $http.post('http://localhost:3000/hospital/getAlldetails',obj).then(function successCallBack(response){
             $scope.Alldetails=(response.data)
-            console.log($scope.Alldetails)
         },function errorCallBack(response){
             console.log(response)
         })
@@ -48,7 +46,6 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         $http.post('http://localhost:3000/service/findall',obj).then(function successCallBack(response){
             
             $scope.Services=(response.data)
-            console.log($scope.Services)
         },function errorCallBack(response){
             console.log(response)
         })

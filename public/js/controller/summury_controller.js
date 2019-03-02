@@ -12,7 +12,6 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           }
           $http.post('http://localhost:3000/hospital/getAlldetails',obj).then(function successCallback(response){
               $scope.Alldetails=response.data;
-              console.log($scope.Alldetails)
               $scope.gettoDayBilling();
           },function errorCallback(response){
               console.log(response)
@@ -25,9 +24,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
         }
         $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
-              console.log($scope.dayendData)
               $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
-              console.log($scope.totolserviceAmount)
           },function errorCallback(response){
               console.log(response)
           })       
@@ -39,15 +36,13 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           }
           $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
-              console.log($scope.dayendData)
               $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
-              console.log($scope.totolserviceAmount)
           },function errorCallback(response){
               console.log(response)
           }) 
     }
     $scope.twoDate=function(){
-        $scope.myname=true;
+        
     }
     $scope.startDate;
     $scope.endDate;
@@ -58,19 +53,32 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
             startDate:startDate,
             endDate:endDate
         }
-        console.log(obj)
         $http.post('http://localhost:3000/billing/billingbetweentwodays',obj).then(function successCallback(response){
             $scope.dayendData=response.data;
-            console.log($scope.dayendData)
             $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
             console.log($scope.totolserviceAmount)
         },function errorCallback(response){
             console.log(response)
         }) 
     }
-    $scope.oneday=function(){
-        $scope.myname=false
+    $scope.biilingdone=function(){
+        var startDate=$filter('date')($scope.startDate,'yyyy-MM-dd');
+        var endDate=$filter('date')($scope.endDate,'yyyy-MM-dd');
+        var obj={
+            startDate:startDate,
+            endDate:endDate
+        }
+        if(startDate===null && startDate===undefined){
+            $scope.gettoDayBilling();
+        }else if(startDate!=null && startDate!=undefined){
+           $scope.gettwoDayBilling();
+        }else if(startDate==null||undefined && endDate!=null||undefined){
+            $scope.getDayBilling()
+        }else{
+            $scope.getDayBilling();
+        }
     }
+   
     
     
  })

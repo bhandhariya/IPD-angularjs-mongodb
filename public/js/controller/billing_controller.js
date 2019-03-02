@@ -16,7 +16,6 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
         }
         $http.post('http://localhost:3000/patient/findbynameall',obj).then(function successCallback(response){
             $scope.data=response.data;
-            console.log($scope.data)
             $scope.raja=false;
             $scope.saini=true;
         },function errorCallback(response){
@@ -32,7 +31,6 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             $scope.raja=true;
             $scope.saini=false;
             $scope.Services=response.data;
-           console.log($scope.Services)
         },function errorCallback(response){
             console.log(response)
         })
@@ -44,8 +42,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             id:$scope.pid
         }
         $http.post('http://localhost:3000/patient/getonePatientDetail',obj2).then(function successCallback(response){
-            $scope.detailsosService=(response.data.BillingDetails)        
-            console.log($scope.detailsosService)    
+            $scope.detailsosService=(response.data.BillingDetails)            
 
         },function errorCallback(response){
             console.log(response)
@@ -60,17 +57,12 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             patientid:$scope.pid,
             hospitalid:$scope.hos_id,
           }
-         
-          console.log(obj)
           $http.post('http://localhost:3000/patient/addServiceToPatient',obj).then(function successCallback(response){
             
             $scope.dtttt=response.data;
-           console.log($scope.dtttt)
            var raja=($scope.dtttt.BillingDetails)
            $scope.tottal=raja.reduce((sum,item)=> sum+item.charge,0);
            $scope.patServices=$scope.dtttt.services;
-           console.log($scope.patServices)
-           console.log($scope.tottal)
           $scope.getOnePat()
 
         },function errorCallback(response){
@@ -89,7 +81,6 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             total:$scope.tottal,
             billing_date:$filter('date')(new Date(),'yyyy-MM-dd')
           }
-          console.log(obj)
           $http.post('http://localhost:3000/patient/billinggg',obj).then(function successCallback(response){
             
             $scope.billigdata=response.data;
