@@ -111,19 +111,31 @@ a:focus, a:hover {
               <tbody ng-if="Services" >
                 <tr ng-repeat="item in Services" >
                   <td  >{{$index+1}}</td>
-                  <td  >{{item.name}}</td>
-                  <td  >{{item.charge}}</td>
+                  <td  >
+                    <div ng-hide="editMode" >
+                      {{item.name}}
+                    </div>
+                    <div ng-show="editMode" >
+                      <input  class="form-control" type="text" ng-model="namename" >
+                    </div>
+                  </td>
+                  <td  >
+                    <div ng-hide="editMode" >
+                      {{item.charge}}
+                    </div>
+                    <div ng-show="editMode" >
+                      <input  class="form-control" type="text" ng-model="chargecharge" >
+                    </div>
+                  </td>
                   <td  >
                     <!-- <input type="button" class="btn btn-success" ng-click="tab(item)" value="Edit"  > -->
             <!-- <span class="glyphicon glyphicon-pencil" ng-click="test()" ></span>
             <span class="glyphicon glyphicon-remove" ng-click="test()" ></span> -->
-            <button type="button" ng-click="tab(item)" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-pencil">edit</span> 
-            </button>
-            <button ng-click="delete(item._id)" type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-remove">delete</span> 
-            </button>
             
+            <i class="fa fa-pencil"  ng-hide="editMode" ng-click="editMode=true;editAppKey(item)" aria-hidden="true"></i>
+            <i class="fa fa-check-circle" aria-hidden="true"   ng-show="editMode"  ng-click="editMode = false; saveField()" ></i>
+            <i class="fa fa-ban" ng-show="editMode" ng-click="editMode = false; cancel()" aria-hidden="true"></i>
+            <i class="fa fa-trash-o" aria-hidden="true"  ng-click="delete(item._id)"  ng-hide="editMode" ></i>
                   </td>
                   <!-- <td ng-if="item._id!=bgloid">
                     <input type="button" ng-click="delete(item._id)"  value="Delete"  class="btn btn-danger" ></td> -->

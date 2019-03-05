@@ -64,7 +64,7 @@ exports.addServicestoPatient=function(req,res,next){
 exports.update=function(req,res,next){
     var data=req.body;
     console.log(data)
-    Service.findByIdAndUpdate(data.id,{
+    Service.findOneAndUpdate(data.id,{
         $set:{
             name:data.name,
             charge:data.charge

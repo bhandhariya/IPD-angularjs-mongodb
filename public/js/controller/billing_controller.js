@@ -1,6 +1,6 @@
 angular.module('billing',[]).controller('billingctrl',function($scope,$http,$filter){
-    $scope.name='raja';
-    $scope.hos_id='5c5bc734f2c5b4290885181d';
+    $scope.name='Abhishek';
+    $scope.hos_id='5c78ebcfbbf80c1ca0da57dc';
     $scope.data;
     $scope.pid;
     $scope.dtttt;
