@@ -36,5 +36,5 @@ var data={
 		}
 };
 
-var d=_.split(data);
+var d=_.chunk(data);
 console.log(d)

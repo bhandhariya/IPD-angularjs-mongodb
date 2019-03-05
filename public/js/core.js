@@ -1,4 +1,4 @@
-angular.module('myApp',['register','addservice','billing','summury','ngRoute','ngMaterial']).config(
+angular.module('myApp',['register','addservice','billing','summury','prefix','ngRoute','ngMaterial']).config(
   function($routeProvider){
     $routeProvider.
     when("/addservice",{
@@ -7,8 +7,7 @@ angular.module('myApp',['register','addservice','billing','summury','ngRoute','n
     }).
     when("/addprefic",{
       templateUrl : "/js/view/addprefix.html",
-      controller:function addprefixserctrl($scope){
-      }
+      controller: 'addprefixserctrl'
     }).
     when("/billing",{
       templateUrl : "/js/view/billing.html",

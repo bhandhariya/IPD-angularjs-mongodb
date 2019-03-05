@@ -30,7 +30,7 @@
             <tr>
               <th> Token No.</th>
               <th>Patient Name<span class=" fas fa-user-tie"></span> </th>
-              <th>Gurdian Name <span class=" fa fa-user fa-2x"></span></th>
+              <th>Guardian Name <span class=" fa fa-user fa-2x"></span></th>
               <th> E-Mail  <span class=" fa fa-book fa-2x"></span></th>
               <th> Mobile  <span class="fa fa-phone fa-2x"></span></th>
               <th>Patient Present</th>
@@ -61,14 +61,14 @@
       <div  ng-if="Services" ng-hide="saini" >
            
                  <div class="col-md-12">
-                   <div class="row col-md-12 col-md-offset-2 custyle">
-                     <table class="table table-striped custab">
+                   <div class="row col-md-6 col-md-offset-2 custyle">
+                     <table class="table ">
                      <thead>
                         <tr>
                             <td>
                                 <div class="form-group">
                                     <label for="service">Service Name</label>
-                                    <select ng-model="somevalye._id" class="custom-select" name="" id="">
+                                    <select style="width: 250px" ng-model="somevalye._id" class="custom-select" name="" id="">
                                         <option  ng-repeat="item in Services" value="{{item._id}}"  >{{item.name}}</option>
                                     </select>
                                 </div>

@@ -42,7 +42,8 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             id:$scope.pid
         }
         $http.post('http://localhost:3000/patient/getonePatientDetail',obj2).then(function successCallback(response){
-            $scope.detailsosService=(response.data.BillingDetails)            
+            $scope.detailsosService=(response.data.BillingDetails)      
+            $scope.tottal=""      
 
         },function errorCallback(response){
             console.log(response)
@@ -85,8 +86,9 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             
             $scope.billigdata=response.data;
            if($scope.billigdata){
-               alert('billing Done')
+               alert('Bill Generated')
                $scope.getOnePat()
+               
            }
            $scope.getOnePat()
 
