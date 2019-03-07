@@ -17,7 +17,7 @@ var hospitalRouter=require('./routes/hospital_router');
 var patientRouter=require('./routes/paitent_router');
 var serviceRouter=require('./routes/service_router');
 var billingRouter=require('./routes/billing_router');
-
+var dashboardRouter=require('./routes/dashboard_router');
 
 var app = express();
 
@@ -47,6 +47,7 @@ app.use('/hospital',hospitalRouter);
 app.use('/patient',patientRouter);
 app.use('/service',serviceRouter);
 app.use('/billing',billingRouter);
+app.use('/dashboard',dashboardRouter);
 
 app.get('/',function(req,res){
     res.sendFile( __dirname + "/public/" + "index.html" );
