@@ -1,1 +1,263 @@
-patient advance
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Patient Advance</title>
+    <link rel="stylesheet" href="/css/patientadvance.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
+        <span class="textbold14">
+          <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!duepayment">Due Payments</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!companypayment">Company Payment</a>&nbsp;|&nbsp;
+          <a class="text-error" href="#!ipdbilling">IPD Billing</a>&nbsp;</span></div>
+          <a class="text-info" href="#!patientadvance">Patient Advance</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!ipdestimation">IPD Estimation</a>&nbsp;|&nbsp;
+    </div>
+<div class="container">
+  <div class="blue_box"><!--Start Blue Box-->
+  		<div id="i1" class="row"><!--Start Row-->
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"><!--Start Div-->
+                          <label class="form-label text-color ">UHID</label>
+                          <input name="uhid" class="form-control" id="uhid" type="text" placeholder="UHID" value="" validate="UHID,alphanumeric,no">
+                          <span class="textbold14 text-error" id="uhid_message"></span>
+                      </div><!--Close Div-->
+  		    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"><!--Start Div-->
+  			<label class="form-label text-color ">First Name</label>
+  			<input name="first_name" class="form-control" id="first_name" type="text" placeholder="First Name" value="" validate="Patient Name,alphanumeric,no">
+  			<span class="textbold14 text-error" id="first_name_message"></span>
+  		    </div><!--Close Div-->
+
+  		    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"><!--Start Div-->
+  		      <label class="form-label text-color textBold14">Mobile No.</label>
+  			<input name="mobile" class="form-control" id="mobile" type="text" placeholder="Mobile No." value="" validate="Mobile No.,numeric,no">
+  			<span class="textbold14 text-error" id="mobile_message"></span>
+  		    </div><!--Close Div-->
+
+  		    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"><!--Start Div-->
+  		      <label class="form-label text-color textBold14">Date (From)</label>
+  			<input name="date_from" class="form-control date" id="date_from" onmousedown="show_fromto_calendar('date_from','to_date');" type="text" maxlength="10" placeholder="Registration Date (From)" value="" autocomplete="off" validate=",date,no">
+  			<span class="textbold14 text-error" id="date_from_message"></span>
+  		    </div><!--Close Div-->
+
+  		    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4"><!--Start Div-->
+  			  <label class="form-label text-color textBold14">Date (To)</label>
+  			<input name="date_to" class="form-control date" id="date_to" onmousedown="show_fromto_calendar('date_from','date_to');" type="text" maxlength="10" placeholder="Registration Date (To) " value="" autocomplete="off" validate=",date,no">
+  			<span class="textbold14 text-error" id="date_to_message"></span>
+  		    </div><!--Close Div-->
+
+  		    <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4"><!--Start Div-->
+  			<label class="form-label text-color textBold14">&nbsp;</label>
+  			<input class="btn btn-sm btn-info btn-sm" onclick="submitForm('searchPatient','patient_advance_collection.php','search');" type="button" value="Search">
+  			<input name="type" type="hidden" value="search_list">
+  			<input name="search" type="hidden" value="Search">
+  			<input name="menu_nr" type="hidden" value="183">
+  			<input name="sid" type="hidden" value="ihnjtdnrt79u7rn2fcjpv6jgg3">
+  			<input name="lang" type="hidden" value="">
+  			<input name="mode" id="mode" type="hidden" value="">
+  		    </div><!--Close Div-->
+  		</div><!--Close Row-->
+  	    </div>
+</div>
+<div class="container">
+  <div class="table-responsive box-shadow">
+		<table width="100%" class="table table-hover table-striped  table-condensed" border="0">
+		    <thead>
+			<tr class="text14">
+			    <th>Sr.&nbsp;No.</th>
+			    <th>Patient UHID</th>
+			    <th>Admission No.</th>
+			    <th>Patient Details</th>
+			    <th>Advance Amount</th>
+			    <th>Add Advance</th>
+			    <th>Action</th>
+			</tr>
+		    </thead>
+		    <tbody><tr class="text14">
+				<td>1</td>
+				<td>RG00007272</td>
+				<td></td>
+				<td>Mr Amit  Chatterjee|27 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_1" class="form-control" id="add_amount_1" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7271','../../','1','mr amit  chatterjee','9897756676','','RG00007272');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7271','');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>2</td>
+				<td>RG00007271</td>
+				<td>IP19000022</td>
+				<td>Mr Pradipta Chandra Das|36 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_2" class="form-control" id="add_amount_2" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7270','../../','2','mr pradipta chandra das','9889989898','','RG00007271');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7270','IP19000022');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>3</td>
+				<td>RG00007270</td>
+				<td>IP19000021</td>
+				<td>Mr Rohan Kumar Das|67 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_3" class="form-control" id="add_amount_3" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7269','../../','3','mr rohan kumar das','5214587458','','RG00007270');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7269','IP19000021');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>4</td>
+				<td>RG00007269</td>
+				<td></td>
+				<td>Mr Sanjana  |21 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_4" class="form-control" id="add_amount_4" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7268','../../','4','mr sanjana  ','8285285247','','RG00007269');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7268','');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>5</td>
+				<td>RG00007268</td>
+				<td>IP19000019</td>
+				<td>Mr Amit  Roy|35 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_5" class="form-control" id="add_amount_5" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7267','../../','5','mr amit  roy','9977654321','','RG00007268');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7267','IP19000019');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>6</td>
+				<td>RG00007267</td>
+				<td>IP19000018</td>
+				<td>Mr Sourin  Dutta|40 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_6" class="form-control" id="add_amount_6" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7266','../../','6','mr sourin  dutta','9163065188','','RG00007267');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7266','IP19000018');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>7</td>
+				<td>RG00007266</td>
+				<td></td>
+				<td>Ms Rima Kumari |11 Y/F</td>
+				<td>1000.00</td>
+				<td width="10%">
+				    <input name="add_amount_7" class="form-control" id="add_amount_7" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7265','../../','7','ms rima kumari ','9563254152','','RG00007266');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7265','');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>8</td>
+				<td>RG00007265</td>
+				<td>IP19000020</td>
+				<td>Mr Swapan Kumar Das|46 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_8" class="form-control" id="add_amount_8" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7264','../../','8','mr swapan kumar das','9432372885','4','RG00007265');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7264','IP19000020');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>9</td>
+				<td>RG00007264</td>
+				<td>IP19000016</td>
+				<td>Mr Satyakam  Nayak|38 Y/M</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_9" class="form-control" id="add_amount_9" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7263','../../','9','mr satyakam  nayak','9357885673','','RG00007264');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7263','IP19000016');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr><tr class="text14">
+				<td>10</td>
+				<td>RG00007263</td>
+				<td>IP19000015</td>
+				<td>Ms Ujjwal  |19 Y/F</td>
+				<td></td>
+				<td width="10%">
+				    <input name="add_amount_10" class="form-control" id="add_amount_10" onkeyup="removespclchar(this,'num');" onblur="removespclchar(this,'decinum');" type="text" maxlength="7" placeholder="Advance Amount" value="0">
+				</td>
+				<td>
+				    <a onclick="collect_amount('7262','../../','10','ms ujjwal  ','9971688432','','RG00007263');">
+					<i class="btn btn-md btn-primary fa fa-rupee">&nbsp;Collect</i>
+				    </a>
+				    <b>|</b>
+				    <a onclick="OpenAdvancePopup('7262','IP19000015');">
+					<i class="btn btn-md btn-primary fa fa-plus">&nbsp;More</i>
+				    </a>
+				</td>
+			    </tr></tbody>
+		</table>
+	    </div>
+</div>
+  </body>
+</html>

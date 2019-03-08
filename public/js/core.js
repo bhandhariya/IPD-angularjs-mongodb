@@ -43,7 +43,11 @@ angular.module('myApp',['register','addservice','billing','summury','prefix','da
     }).
     when("/ipdbilling",{
       templateUrl : "/js/view/ipdbilling.html",
-      controller:'ipdbilling'
+      controller:'ipdbillingctrl'
+    }).
+    when("/makebill",{
+      templateUrl : "/js/view/makebill.html",
+      controller:'makebillctrl'
     }).
     otherwise({
       template : "<h1>None</h1><p>Nothing has been selected</p>"

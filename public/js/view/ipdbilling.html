@@ -1,1 +1,183 @@
-ipd billing
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>IPD Billing</title>
+    <link rel="stylesheet" href="/css/ipdbilling.css">
+  </head>
+  <body>
+
+<div class="container">
+  <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
+    <span class="textbold14">
+      <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
+      <a class="text-info" href="#!duepayment">Due Payments</a>&nbsp;|&nbsp;
+      <a class="text-info" href="#!companypayment">Company Payment</a>&nbsp;|&nbsp;
+      <a class="text-error" href="#!ipdbilling">IPD Billing</a>&nbsp;</span></div>
+      <a class="text-info" href="#!patientadvance">Patient Advance</a>&nbsp;|&nbsp;
+      <a class="text-info" href="#!ipdestimation">IPD Estimation</a>&nbsp;|&nbsp;
+</div>
+
+    <div class="container">
+      <div id="i1" class="blue_box">
+		<div class="row">
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color ">Admission No.</label>
+			<input name="encounter_nr" class="form-control" id="encounter_nr" type="text" placeholder="Admission No." value="">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color ">Patient UHID</label>
+			<input name="uhid" class="form-control" id="uhid" type="text" placeholder="Patient UHID" value="">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color ">Patient Name</label>
+			<input name="first_name" class="form-control" id="first_name" type="text" placeholder="First Name" value="">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color textBold14">Mobile No.</label>
+			<input name="mobile" class="form-control" id="mobile" type="text" placeholder="Mobile No." value="">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color textBold14">Date (From)</label>
+			<input name="start_date" class="form-control" id="start_date" onmousedown="show_fromto_calendar('start_date','end_date');" type="text" maxlength="10" readonly="" placeholder="Admission Date" value="" autocomplete="off">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="text-color textBold14">Date (to)</label>
+			<input name="end_date" class="form-control" id="end_date" onmousedown="show_fromto_calendar('start_date','end_date');" type="text" maxlength="10" readonly="" placeholder="Admission Date" value="" autocomplete="off">
+		    </div>
+
+		    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+			<label class="textbold14 text-color">Admission Ward</label>
+			<select name="ipd_ward" tabindex="-1" class="form-control select2-hidden-accessible" id="ipd_ward" aria-hidden="true" style="width:100%;" data-placeholder="Select Ward">
+			    <option value=""></option><option value="24">CCU 1</option><option value="91">Day Care</option><option value="30">Double Occupancy 2F</option><option value="41">Double Occupancy 4F</option><option value="43">Double Occupancy 5F</option><option value="28">Economy Bed 2F</option><option value="44">Economy Bed 5F</option><option value="53">Emergency</option><option value="25">ICU 2</option><option value="26">ICU 3</option><option value="27">ICU 4</option><option value="35">Labor Room</option><option value="36">NICU and Gynec Left Side</option><option value="98">NICU LEVEL 1</option><option value="99">NICU LEVEL 2</option><option value="38">NICU Level 3</option><option value="33">NICU OT</option><option value="37">Nursery Room</option><option value="39">Post Natal  Room</option><option value="34">Post OP Room</option><option value="32">Post Operative</option><option value="31">Pre Operative Ccu</option><option value="29">Single Occupancy 2F</option><option value="40">Single Occupancy 4F</option><option value="45">Single Occupancy 5F</option><option value="42">Suite 4F</option><option value="51">Triple Occupancy 2F</option></select><span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" style="width: 100%;" dir="ltr"><span class="selection"><span tabindex="0" class="select2-selection select2-selection--single" role="combobox" aria-expanded="false" aria-haspopup="true" aria-labelledby="select2-ipd_ward-container"><span class="select2-selection__rendered" id="select2-ipd_ward-container"><span class="select2-selection__placeholder">Select Ward</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+		    </div>
+
+		    <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+			<label class="text-color textBold14">&nbsp;</label>
+			<input class="btn btn-sm btn-info btn-sm" onclick="submitForm('searchPatient','','search','checkFormDate');" type="button" value="Search">
+		    </div>
+		</div>
+	    </div>
+    </div>
+  <div class="container">
+    <div class="table-responsive box-shadow">
+		<table width="100%" class="table table-hover table-striped  table-condensed" border="0">
+		    <caption>
+			<a onclick="javascript:ShowRequestedData('all');"><span class="label label-default">All</span></a>
+			<a onclick="javascript:ShowRequestedData('admit');"><span class="label label-success">Admit</span></a>
+			<a onclick="javascript:ShowRequestedData('transfer_pending');"><span class="label label-warning">Transfer Pending</span></a>
+			<a onclick="javascript:ShowRequestedData('discharge_intimation');"><span class="label ">Discharge Intimation</span></a>
+			<a onclick="javascript:ShowRequestedData('discharged');"><span class="label label-infoplus">Discharge</span></a>
+		    </caption><thead>
+			    <tr class="text14">
+				<th>Sr.&nbsp;No.</th>
+				<th>Admission No.</th>
+				<th>Patient UHID</th>
+				<th>Patient Name</th>
+				<th>Phone No.</th>
+				<th>Age/Sex</th>
+				<th>Admission Time</th>
+				<th>Action</th>
+			    </tr>
+			</thead>
+			<tbody><tr class="text14 danger">
+				    <td>1</td>
+				    <td>IP19000019</td>
+				    <td>RG00007268</td>
+				    <td>Mr amit  roy</td>
+				    <td>9977654321</td>
+				    <td>35 Y/M</td>
+				    <td>31/01/2019 02:36 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>2</td>
+				    <td>IP19000016</td>
+				    <td>RG00007264</td>
+				    <td>Mr satyakam  Nayak</td>
+				    <td>9357885673</td>
+				    <td>38 Y/M</td>
+				    <td>21/01/2019 06:33 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>3</td>
+				    <td>IP19000012</td>
+				    <td>RG00007257</td>
+				    <td>Mr Abdalla OMar Ahmed</td>
+				    <td>0615777689</td>
+				    <td>26 Y/M</td>
+				    <td>19/01/2019 12:27 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>4</td>
+				    <td>IP19000011</td>
+				    <td>RG00007256</td>
+				    <td>Mr Amit  </td>
+				    <td>9971367172</td>
+				    <td>35 Y/M</td>
+				    <td>18/01/2019 04:58 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>5</td>
+				    <td>IP19000010</td>
+				    <td>RG00007252</td>
+				    <td>Mr Nirmal kumar sharma</td>
+				    <td>9877655433</td>
+				    <td>12 Y/M</td>
+				    <td>16/01/2019 12:30 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>6</td>
+				    <td>IP19000008</td>
+				    <td>RG00007254</td>
+				    <td>Mr Jama Ali </td>
+				    <td>0877676756</td>
+				    <td>5 Y/M</td>
+				    <td>15/01/2019 03:30 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>7</td>
+				    <td>IP19000007</td>
+				    <td>RG00007253</td>
+				    <td>Mr Hassan Abdi Ahmed</td>
+				    <td>0615557735</td>
+				    <td>28 Y/M</td>
+				    <td>14/01/2019 04:00 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>8</td>
+				    <td>IP18000621</td>
+				    <td>RG00007246</td>
+				    <td>Mr ashraf  </td>
+				    <td>2323423423</td>
+				    <td>33 Y/M</td>
+				    <td>20/12/2018 12:05 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>9</td>
+				    <td>IP18000613</td>
+				    <td>RG00007211</td>
+				    <td>Mr Rakesh  </td>
+				    <td>9783968125</td>
+				    <td>24 Y/M</td>
+				    <td>12/12/2018 09:01 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr><tr class="text14 danger">
+				    <td>10</td>
+				    <td>IP18000599</td>
+				    <td>RG00007018</td>
+				    <td>Mr Manander  Singh</td>
+				    <td>9829828528</td>
+				    <td>60 Y/M</td>
+				    <td>09/12/2018 03:30 PM</td>
+				    <td><a class="btn btn-sm btn-info btn-sm" href="#!makebill"><i class="fa fa-file">&nbsp;Make Bill</i></a></td>
+				</tr></tbody></table>
+	    </div>
+  </div>
+
+  </body>
+</html>

@@ -6,7 +6,16 @@
     <link rel="stylesheet" href="/css/companypayment.css">
   </head>
   <body>
-
+    <div class="container">
+      <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
+        <span class="textbold14">
+          <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!duepayment">Due Payments</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!companypayment">Company Payment</a>&nbsp;|&nbsp;
+          <a class="text-error" href="#!ipdbilling">IPD Billing</a>&nbsp;</span></div>
+          <a class="text-info" href="#!patientadvance">Patient Advance</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!ipdestimation">IPD Estimation</a>&nbsp;|&nbsp;
+    </div>
     <div class="container">
     		    <div id="i1" class="row">
     			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
@@ -27,6 +36,56 @@
     			</div>
     		    </div>
     		</div>
+        <div class="container">
+          <div class="table-responsive box-shadow">
+			<table width="100%" class="table table-hover table-striped  table-condensed" border="0">
+			    <thead>
+				<tr class="text14">
+				    <th>Sr.&nbsp;No.</th>
+				    <th>Company Name</th>
+				    <th>Total Amount</th>
+				    <th>Paid Amount</th>
+				    <th>Due Amount</th>
+				    <th>Refund Amount</th>
+				    <th>Action</th>
+				</tr>
+			    </thead>
+			    <tbody> 				    <tr class="text14">
+					<td>1</td>
+					<td>Star Health</td>
+					<td>15000.00</td>
+					<td>0.00</td>
+					<td>0.00</td>
+					<td>0.00</td>
+					<td><i class="btn btn-sm btn-primary fa fa-inr" onclick="confirm_payment('4')"> Receive</i></td>
+				    </tr> 				    <tr class="text14">
+					<td>2</td>
+					<td>National Bulk Handling Corporation</td>
+					<td>26200.00</td>
+					<td>3500.00</td>
+					<td>6170.00</td>
+					<td>0.00</td>
+					<td><i class="btn btn-sm btn-primary fa fa-inr" onclick="confirm_payment('3')"> Receive</i></td>
+				    </tr> 				    <tr class="text14">
+					<td>3</td>
+					<td>Apollo Munich</td>
+					<td>14700.00</td>
+					<td>0.00</td>
+					<td>14700.00</td>
+					<td>0.00</td>
+					<td><i class="btn btn-sm btn-primary fa fa-inr" onclick="confirm_payment('2')"> Receive</i></td>
+				    </tr> 				    <tr class="text14">
+					<td>4</td>
+					<td>Bhama Shah Health Scheme</td>
+					<td>2714190.00</td>
+					<td>0.00</td>
+					<td>338150.00</td>
+					<td>0.00</td>
+					<td><i class="btn btn-sm btn-primary fa fa-inr" onclick="confirm_payment('1')"> Receive</i></td>
+				    </tr> 			    </tbody>
+			</table>
+		    </div>
+        </div>
 
   </body>
 </html>

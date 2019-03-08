@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Make Bill</title>
+    <link rel="stylesheet" href="/css/makebill.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
+        <span class="textbold14">
+          <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!duepayment">Due Payments</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!companypayment">Company Payment</a>&nbsp;|&nbsp;
+          <a class="text-error" href="#!ipdbilling">IPD Billing</a>&nbsp;</span></div>
+          <a class="text-info" href="#!patientadvance">Patient Advance</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!ipdestimation">IPD Estimation</a>&nbsp;|&nbsp;
+    </div>
+
+    <div class="container">
+    <div id="i2" class="row btn btn-primary">
+      <button class="btn btn-sm btn-danger pull-right margin_small" type="button"><span class="fas fa-print">&nbsp;</span>Bill Breakup&nbsp;</button>
+        <button class="btn btn-sm btn-danger pull-right margin_small" type="button"><span class="fas fa-print">&nbsp;</span>Provisional Bill&nbsp;</button>
+        <button class="btn btn-sm btn-danger pull-right margin_small" type="button"><span class="fas fa-pencil-alt">&nbsp;</span>Add Service&nbsp;</button>
+        <button class="btn btn-sm btn-danger pull-right margin_small" type="button"><span class="fa fa-save">&nbsp;</span>Save&nbsp;</button>
+        <button class="btn btn-sm btn-danger pull-right margin_small" type="button"><span class="fa fa-rupee-sign">&nbsp;</span>Discount&nbsp;</button>
+        <button class="btn btn-sm btn-danger pull-right margin_small" type="button">Package&nbsp;</button>
+
+    </div>
+    </div>
+<div class="container">
+  <div id="i1" class="blue_box">
+    <div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Admission No. :</label>
+	    <label class="text14 text-color">IP19000019</label>
+	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">UHID :</label>
+	    <label class="text14 text-color">RG00007268</label>
+	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Patient Details :</label>
+	    <label class="text14 text-color">Mr Amit  Roy | 35 Y/M</label>
+	</div>
+    </div>
+
+    <div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Billing Categ/Ward :</label>
+	    <label class="text14 text-color">General/ICU</label>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Ward:</label>
+	    <label class="text14 text-color">ICU 3/120/1034</label>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Admission Date :</label>
+	    <label class="text14 text-color">31/01/2019 14:36:58	    </label>
+	</div>
+    </div>
+
+    <div class="row">
+	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
+	    <label class="textbold14 text-color">Doctor :</label>
+	    <label class="text14 text-color"> Dr Amit Goyal</label>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+	    <label class="textbold14 text-color">Address :</label>
+	    <label class="text14 text-color">Kolkata</label>
+	</div>
+    </div>
+
+</div>
+</div>
+
+  <div class="container">
+    <div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="box-shadow">
+
+<div class="row">
+
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	<div id="detail_view">
+	<div class="table-responsive">
+<table class="table table-bordered table-condensed">
+<thead>
+<tr class="textBold16 info">
+<th width="5%" class="text-left">Sr.&nbsp;No.</th>
+<th width="40%" class="text-left" valign="top">Service Name</th>
+<th width="20%" class="text-right" valign="top">Bill Amount</th>
+<th width="20%" class="text-right" valign="top">Discount Amount</th>
+<th width="20%" class="text-right" valign="top">Net Amt.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="clickable totaltype textBold14" id="nursing_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".nursing_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="nursing_1sym fa fa-plus"></span></button></td>	<td>Bed Charges</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	</tr>
+
+<tr class="collapse nursing_1" id="collapse nursing_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Ward/Bed</b></td>
+<td align="left"><b>Date (From)</b></td>
+<td align="left"><b>Date (To)</b></td>
+<td align="right"><b> Charges/Day</b></td>
+<td align="right"><b>No. Of Days</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+</tr>
+</thead>
+<tbody>
+<tr class="text14">
+<td align="left">ICU 3/1034</td>
+<td align="left">31/01/2019 14:36:58</td>
+<td align="left">31/01/2019 15:03:21</td>
+<td align="right"><input name="nursing_1426" class="form-control input_small" id="nursing_1426" style="display: initial;" onkeyup="removespclchar(this,'decinum');" type="text" value="4500">
+	<a onclick="static_update_price(1426,26,'nursing');" href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+<td align="right">1 H</td>
+<td align="right">0.00</td>
+</tr>
+</tbody><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="nursing_care_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".nursing_care_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="nursing_care_1sym fa fa-plus"></span></button></td>	<td>Nursing Care</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	</tr>
+
+<tr class="collapse nursing_care_1" id="collapse nursing_care_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Ward/Bed</b></td>
+<td align="left"><b>Date (From)</b></td>
+<td align="left"><b>Date (To)</b></td>
+<td align="right"><b> Charges/Day</b></td>
+<td align="right"><b>No. Of Days</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+</tr>
+</thead>
+<tbody>
+<tr class="text14">
+<td align="left">ICU 3/1034</td>
+<td align="left">31/01/2019 14:36:58</td>
+<td align="left">31/01/2019 15:03:21</td>
+<td align="right">450</td>
+<td align="right">1 H</td>
+<td align="right">0.00</td>
+</tr>
+</tbody><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="doctor_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".doctor_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="doctor_1sym fa fa-plus"></span></button></td>	<td>Doctors Visit /Consultation</td>
+	<td align="right">2,200.00</td>
+	<td align="right">0.00</td>
+	<td align="right">2,200.00</td>
+	</tr>
+
+<tr class="collapse doctor_1" id="collapse doctor_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Doctor Name</b></td>
+<td align="left"><b> Date</b></td>
+<td align="right"><b>Visit Type</b></td>
+<td align="right"><b> Rates</b></td>
+<td align="right"><b> Quantity</b></td>
+<td align="right"><b>Discount</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+</tr>
+</thead>
+<tbody>
+<tr class="text14">
+<td align="left">Dr Abhishek Mayyar</td>
+<td align="left">31/01/2019 /31/01/2019 </td>
+<td align="right">Triple Occupancy</td>
+<td align="right"><input name="doctor_3061" class="form-control input_small" id="doctor_3061" style="display: initial;" onkeyup="removespclchar(this,'decinum');" type="text" value="2200.00">
+	<input name="doctor_dis_per_3061" class="form-control input_small" id="doctor_dis_per_3061" type="hidden" value="0.000000">
+	<a onclick="static_update_price(3061,86,'doctor');" href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+<td align="right">1.00</td>
+<td align="right">0.00</td>
+<td align="right">2,200.00</td>
+
+</tr>
+</tbody><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="ot_procedure_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".ot_procedure_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="ot_procedure_1sym fa fa-plus"></span></button></td>	<td>OT Procedure</td>
+	<td align="right">10.00</td>
+	<td align="right">0.00</td>
+	<td align="right">10.00</td>
+	</tr>
+
+<tr class="collapse ot_procedure_1" id="collapse ot_procedure_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Procedure Name</b></td>
+<td align="left"><b>Date</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+<td align="right"><b>Discount</b></td>
+<td align="right"><b>Net Amt.</b></td>
+</tr>
+</thead>
+<tbody>
+<tr class="text14">
+<td align="left">30%-60% Burns (conservative Management)(Dr Amit  Goyal)</td>
+<td align="left">31/01/2019 14:56:33</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+<tr class="text14">
+<td align="left">OT Charges</td>
+<td align="left">31/01/2019 14:56:33</td>
+<td align="right">10.00</td>
+<td align="right">0.00</td>
+<td align="right">10.00</td>
+</tr>
+<tr class="text14">
+<td align="left">Procedure Charge</td>
+<td align="left">31/01/2019 14:56:33</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+</tbody><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="pharma_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".pharma_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="pharma_1sym fa fa-plus"></span></button></td>	<td>Pharmacy</td>
+	<td align="right">160.00</td>
+	<td align="right">0.00</td>
+	<td align="right">160.00</td>
+	</tr>
+
+<tr class="collapse pharma_1" id="collapse pharma_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14"><td align="center" colspan="6"><b>Issued Item</b></td></tr>
+<tr class="text14">
+<td align="left"><b>Item Name</b></td>
+<td align="left"><b>Sales No.</b></td>
+<td align="right"><b>Quantity</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+<td align="right"><b>Discount</b></td>
+<td align="right"><b>Net Amt.</b></td>
+</tr>
+</thead>
+<tbody>
+<tr class="text14">
+<td align="left" colspan="6"><b>Issued Date 31/01/2019 </b></td>
+</tr>
+<tr class="text14">
+<td align="left">Acetaminophen</td>
+<td align="left">20180010</td>
+<td align="right">2</td>
+<td align="right">60.00</td>
+<td align="right">0.00</td>
+<td align="right">60.00</td>
+</tr>
+<tr class="text14">
+<td align="left">Amoxicillin</td>
+<td align="left">20180010</td>
+<td align="right">2</td>
+<td align="right">100.00</td>
+<td align="right">0.00</td>
+<td align="right">100.00</td>
+</tr>
+</tbody><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="mrdcharges_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".mrdcharges_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="mrdcharges_1sym fa fa-plus"></span></button></td>	<td>Medical Records</td>
+	<td align="right">1,000,000,000,000.00</td>
+	<td align="right">0.00</td>
+	<td align="right">999,999,995,904.00</td>
+	</tr>
+
+<tr class="collapse mrdcharges_1" id="collapse mrdcharges_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Service Name</b></td>
+<td align="right"><b> Rates</b></td>
+<td align="right"><b> No. Of Days</b></td>
+<td align="right"><b>Discount</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+</tr>
+<tr class="text14">
+<td align="left">Medical Records</td>
+<td align="right">
+<input name="static_charges_1916" class="form-control input_small" id="static_charges_1916" style="display: initial;" onkeyup="removespclchar(this,'decinum');" type="text" value="5435435253760.00">
+	<a onclick="static_update_price(1916,12,'static_charges');" href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+<td align="right">1</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">5,435,435,253,760.00</td>
+</tr>
+</thead><tbody>
+</tbody></table>
+</td>
+</tr>
+<tr class="clickable totaltype textBold14" id="dietcharges_1" onclick="collapseble(this);" data-toggle="collapse" data-target=".dietcharges_1"><td><button name="button" class="btn btn-xs btn-primary" type="button"><span class="dietcharges_1sym fa fa-plus"></span></button></td>	<td>Diet Charges</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	<td align="right">0.00</td>
+	</tr>
+
+<tr class="collapse dietcharges_1" id="collapse dietcharges_1">
+<td>&nbsp;</td>
+<td class="info" colspan="4">
+
+<table width="100%" class="table  table-condensed table-striped table-condensed" style="margin-bottom:0px;">
+<thead>
+<tr class="text14">
+<td align="left"><b>Service Name</b></td>
+<td align="right"><b> Rates</b></td>
+<td align="right"><b> No. Of Days</b></td>
+<td align="right"><b>Discount</b></td>
+<td align="right"><b>Amount(Rs.)</b></td>
+</tr>
+<tr class="text14">
+<td align="left">Diet Charges</td>
+<td align="right">
+<input name="static_charges_1917" class="form-control input_small" id="static_charges_1917" style="display: initial;" onkeyup="removespclchar(this,'decinum');" type="text" value="0.00">
+	<a onclick="static_update_price(1917,13,'static_charges');" href="#"><span class="glyphicon glyphicon-ok"></span></a></td>
+<td align="right">1</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+</tr>
+</thead><tbody>
+</tbody></table>
+</td>
+</tr>
+
+          <tr class="textBold16 info">
+          <td>&nbsp;</td>
+          <td>Total</td>
+          <td align="right">1,000,000,002,370.00</td>
+          <td align="right">0.00</td>
+          <td align="right">999,999,998,274.00</td>
+          </tr>
+
+	</tbody>
+    </table>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<div class="table-responsive  ">
+<table class="table table-bordered table-condensed">
+	<thead>
+	<tr class="textBold16 info">
+	<th class="text-left">Description</th>
+	<th class="text-right">Amount</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="textBold14">
+	<td>Bill Amount</td>
+	<td align="right">1,000,000,002,370.00<input name="billamount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="1,000,000,002,370.00">&nbsp;</td>
+	</tr>
+	<tr class="textBold14">
+	<td>Discount Amount</td>
+	<td align="right">0.00<input name="discountamount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="0.00"><br></td>
+	</tr>
+	<tr class="textBold14">
+	<td>Company Payment Amount</td>
+	<td align="right">0.00<input name="company_payble_amount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="0.00"><br></td>
+	</tr>
+	<tr class="textBold14">
+	<td>Patient Payment Amount</td>
+	<td align="right">999999998274<input name="patient_payble_amount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="999999998274"><br></td>
+	</tr>
+	<tr class="textBold14">
+	<td>Deposit Amount</td>
+	<td align="right">0.00<input name="depositamount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="0.00"><br></td>
+	</tr>
+	<tr class="textBold14">
+	<td>Settlement Receipt Amount</td>
+	<td align="right">999,999,998,274.00<input name="receiptamount" class="form-control" type="hidden" size="10" maxlength="15" readonly="" value="999999998274"><br></td>
+	</tr>
+	<tr class="textBold14">
+	<td>Settlement Refund Amount</td>
+	<td align="right">0.00<input name="refundamount" class="form-control" id="refundamount" type="hidden" size="10" maxlength="15" readonly="" value="0"><br></td>
+	</tr>
+	<tr class="textBold16 info">
+	<td>Net Billable Amount</td>
+	<td align="right">999,999,998,274.00<input name="net_total_payble_amount" class="form-control" id="net_total_payble_amount" type="hidden" size="10" maxlength="15" readonly="" value="999999998274"><br></td>
+	</tr>
+
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+  </div>
+
+  </body>
+</html>
+
+
+
+<i class="glyphicon glyphicon-print" ></i>

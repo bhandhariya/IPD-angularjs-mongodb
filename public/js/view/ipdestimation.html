@@ -1,1 +1,123 @@
-ipd estimation
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>IPD Estimation</title>
+    <link rel="stylesheet" href="/css/ipdestimation.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
+        <span class="textbold14">
+          <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!duepayment">Due Payments</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!companypayment">Company Payment</a>&nbsp;|&nbsp;
+          <a class="text-error" href="#!ipdbilling">IPD Billing</a>&nbsp;</span></div>
+          <a class="text-info" href="#!patientadvance">Patient Advance</a>&nbsp;|&nbsp;
+          <a class="text-info" href="#!ipdestimation">IPD Estimation</a>&nbsp;|&nbsp;
+    </div>
+<div class="container">
+
+  <div id="i1" class="blue_box">
+  		      <div class="row">
+  			  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color ">UHID</label>
+  			      <input name="uhid" class="form-control" id="uhid" type="text" placeholder="UHID" value="" validate="UHID,alphanumeric,no">
+  			      <span class="textbold14 text-error" id="uhid_message"></span>
+  			  </div>
+  			  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color ">Patient Name</label>
+  			      <input name="first_name" class="form-control" id="first_name" type="text" placeholder="First Name" value="" validate="First Name,alphanumeric,no">
+  			      <span class="textbold14 text-error" id="first_name_message"></span>
+  			  </div>
+  			  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color textBold14">Mobile No.</label>
+  			      <input name="mobile" class="form-control" id="mobile" type="text" maxlength="10" placeholder="Mobile No." value="" validate="Mobile No.,numeric,no">
+  			      <span class="textbold14 text-error" id="mobile_message"></span>
+  			  </div>
+  			  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color textBold14">Date (From)</label>
+  			      <input name="date_from" class="form-control date" id="date_from" onmousedown="show_fromto_calendar('date_from','to_date');" type="text" maxlength="10" placeholder="Date (From)" value="01/01/2019" autocomplete="off" validate="Date (From),date,no">
+  			      <span class="textbold14 text-error" id="date_from_message"></span>
+  			  </div>
+  			  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color textBold14">Date (To)</label>
+  			      <input name="date_to" class="form-control date" id="date_to" onmousedown="show_fromto_calendar('date_from','date_to');" type="text" maxlength="10" placeholder="Date (To)" value="08/03/2019" autocomplete="off" validate="Date (To),date,no">
+  			      <span class="textbold14 text-error" id="date_to_message"></span>
+  			  </div>
+  			  <div class="col-lg-1 col-md-1 col-sm-4 col-xs-4">
+  			      <label class="form-label text-color textBold14">&nbsp;</label>
+  			      <input class="btn btn-sm btn-info btn-sm" onclick="submitForm('estimation_content','patient_requested_estimation.php','search');" type="button" value="Search">
+  			  </div>
+  		      </div>
+  		  </div>
+</div>
+<div class="container">
+  <div class="table-responsive box-shadow">
+		      <table width="100%" class="table table-hover table-striped  table-condensed" border="0">
+			  <caption>
+			      <a onclick="javascript:ShowRequestedData('normal');"><span class="label ">Normal</span></a>
+			      <a onclick="javascript:ShowRequestedData('requested');"><span class="label label-warning">Doctor Requested</span></a>
+			      <a onclick="javascript:ShowRequestedData('estimated');"><span class="label label-infoplus">Estimated</span></a>
+			      <a onclick="javascript:ShowRequestedData('tpaCash');"><span class="label label-danger">TPA/CASH</span></a>
+			      <a onclick="javascript:ShowRequestedData('done');"><span class="label label-success">Done</span></a>
+			  </caption><thead>
+					<tr class="textbold14">
+					    <th>Sr.&nbsp;No.</th>
+					    <th>Patient Name</th>
+					    <th>UHID</th>
+						<th>Mobile No.</th>
+					    <th>Age/Sex</th><th>Action</th></tr>
+				    </thead>
+			      <tbody><tr class="text14 default">
+						<td>1</td>
+						<td>Mr Amit  Chatterjee</td>
+						<td>RG00007272</td>
+						<td>9897756676</td>
+						<td>27 Y/M</td>
+						<td><a onclick="estimationPopup('7271')">
+							      <i class="btn-sm btn-info fa fa-calculator"> Estimation</i>
+							  </a></td>
+					    </tr><tr class="text14 default">
+						<td>2</td>
+						<td>Mr Sanjana  </td>
+						<td>RG00007269</td>
+						<td>8285285247</td>
+						<td>21 Y/M</td>
+						<td><a onclick="estimationPopup('7268')">
+							      <i class="btn-sm btn-info fa fa-calculator"> Estimation</i>
+							  </a></td>
+					    </tr><tr class="text14 default">
+						<td>3</td>
+						<td>Ms RIMA KUMARI </td>
+						<td>RG00007266</td>
+						<td>9563254152</td>
+						<td>11 Y/F</td>
+						<td><a onclick="estimationPopup('7265')">
+							      <i class="btn-sm btn-info fa fa-calculator"> Estimation</i>
+							  </a></td>
+					    </tr><tr class="text14 default">
+						<td>4</td>
+						<td>Dr Tanvi  Chhabra</td>
+						<td>RG00007261</td>
+						<td>9654492872</td>
+						<td>33 Y/F</td>
+						<td><a onclick="estimationPopup('7260')">
+							      <i class="btn-sm btn-info fa fa-calculator"> Estimation</i>
+							  </a></td>
+					    </tr><tr class="text14 default">
+						<td>5</td>
+						<td>Ms Deepika  Kumari</td>
+						<td>RG00007260</td>
+						<td>8985646997</td>
+						<td>26 Y/F</td>
+						<td><a onclick="estimationPopup('7259')">
+							      <i class="btn-sm btn-info fa fa-calculator"> Estimation</i>
+							  </a></td>
+					    </tr></tbody>
+			      <tfoot>
+			      </tfoot></table>
+		  </div>
+</div>
+  </body>
+</html>
