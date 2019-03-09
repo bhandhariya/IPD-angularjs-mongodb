@@ -1,4 +1,4 @@
-angular.module('myApp',['register','addservice','billing','summury','prefix','dashborad','ngRoute','ngMaterial']).config(
+angular.module('myApp',['register','addservice','billing','summury','prefix','dashborad','patient','ngRoute','ngMaterial']).config(
   function($routeProvider){
     $routeProvider.
     when("/addservice",{
@@ -48,6 +48,10 @@ angular.module('myApp',['register','addservice','billing','summury','prefix','da
     when("/makebill",{
       templateUrl : "/js/view/makebill.html",
       controller:'makebillctrl'
+    }).
+    when("/patientRegistration",{
+      templateUrl : "/js/view/patientRegistration.html",
+      controller:'patientRegistrationctrl'
     }).
     otherwise({
       template : "<h1>None</h1><p>Nothing has been selected</p>"
