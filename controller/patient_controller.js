@@ -201,7 +201,7 @@ exports.billinggg=function(req,res,next){
 
                  },function(err,bill){
                      if(err){
-                         res.send('error')
+                         res.send(err)
                      }else{
                         Billing.findByIdAndUpdate(bill._id,{invoiceid:prefix+bill.billid}).exec(function(err,billu){
                             if(bill){

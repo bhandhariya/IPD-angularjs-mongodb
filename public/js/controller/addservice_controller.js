@@ -1,5 +1,6 @@
 angular.module('addservice',[]).controller('addservicectrl',function($scope,$http){
    $scope.name;
+   $scope.HosPitalID="5c861ec82df421f8c5fc308d"
    $scope.namename;
    $scope.chargecharge;
    $scope.charge;
@@ -55,7 +56,7 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
 }
    $scope.create=function(){
        var obj={
-        hospital_id:'5c5bc734f2c5b4290885181d',
+        hospital_id:$scope.HosPitalID,
         charge:$scope.charge,
         name:$scope.name
        }
@@ -76,7 +77,7 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
     $scope.Alldetails={}
     $scope.getHospitalDetails=function(){
         var obj={
-            id:'5c5bc734f2c5b4290885181d'
+            id:$scope.HosPitalID
         }
         $http.post('http://localhost:3000/hospital/getAlldetails',obj).then(function successCallBack(response){
             $scope.Alldetails=(response.data)
@@ -86,7 +87,7 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
     } 
     $scope.fetchAllPatients=function(){
         var obj={
-            id:'5c5bc734f2c5b4290885181d'
+            id:$scope.HosPitalID
         }
         $http.post('http://localhost:3000/service/findall',obj).then(function successCallBack(response){
             

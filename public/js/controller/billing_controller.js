@@ -1,6 +1,6 @@
 angular.module('billing',[]).controller('billingctrl',function($scope,$http,$filter){
-    $scope.name='Abhishek';
-    $scope.hos_id='5c5bc734f2c5b4290885181d';
+    $scope.name='raja';
+    $scope.hos_id='5c861ec82df421f8c5fc308d';
     $scope.data;
     $scope.pid;
     $scope.dtttt;
@@ -43,7 +43,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
         }
         $http.post('http://localhost:3000/patient/getonePatientDetail',obj2).then(function successCallback(response){
             $scope.detailsosService=(response.data.BillingDetails)      
-            $scope.tottal=""      
+             
 
         },function errorCallback(response){
             console.log(response)
@@ -63,6 +63,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             $scope.dtttt=response.data;
            var raja=($scope.dtttt.BillingDetails)
            $scope.tottal=raja.reduce((sum,item)=> sum+item.charge,0);
+           console.log($scope.tottal)
            $scope.patServices=$scope.dtttt.services;
           $scope.getOnePat()
 
@@ -79,14 +80,16 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             billids:$scope.patServices,
             patid:$scope.pid,
             hos_id:$scope.hos_id,
-            total:$scope.tottal,
+            total:this.tottal,
             billing_date:$filter('date')(new Date(),'yyyy-MM-dd')
           }
           $http.post('http://localhost:3000/patient/billinggg',obj).then(function successCallback(response){
             
             $scope.billigdata=response.data;
+            console.log($scope.billigdata)
+            $scope.tottal=""
            if($scope.billigdata){
-               alert('Bill Generated')
+               alert('billing completed print screen remaining')
                $scope.getOnePat()
                
            }

@@ -40,7 +40,7 @@ router.post('/create', function(req, res, next) {
             nationality:data.nationality,
             locality:data.locality,
             info_source:data.info_source,
-            hospital_id:data.hospital_id,
+            hospital_id : "5c861ec82df421f8c5fc308d",
             UHID:sequence,
             Addmission_no:addmis
       });

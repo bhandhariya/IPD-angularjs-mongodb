@@ -4,7 +4,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
     $scope.selectDate;
     $scope.dayendData;
     $scope.myname=false;
-    $scope.id="5c5bc734f2c5b4290885181d";
+    $scope.id="5c861ec82df421f8c5fc308d";
     $scope.totolserviceAmount;
     $scope.getHospitalDetails=function(){
         var obj={
