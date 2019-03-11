@@ -36,7 +36,9 @@ var PatientSchema=new mongoose.Schema({
     religion:{type:String},
     town:{type:String},
     income:{type:String},
-    occupation:{type:String}
+    occupation:{type:String},
+    UHID:String,
+    Addmission_no:String
     
 },{
     toObject:{virtuals:true},

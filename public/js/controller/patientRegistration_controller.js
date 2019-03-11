@@ -29,17 +29,20 @@ angular
                   // self.reset();
 
                   $http.post('http://localhost:3000/create',self.user).then(function successCallback(response){
-                console.log(response)
+                if(response){
+                  alert('Patient Added')
+                }
+                self.reset();
 
                   },function errorCallback(response){
                       console.log(response)
                   })
               };
 
-            
+
 
               self.reset = function(){
-                  self.user={id:null,username:'',address:'',email:''};
+                  self.user={};
                   $scope.myForm.$setPristine(); //reset Form
               }
 

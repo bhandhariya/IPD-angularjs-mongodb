@@ -1,30 +1,22 @@
 var PatientSequence=require('../model/patient_sequence_modal');
+var pad=require('pad')
 
 
-
-var generatedCustomerSequence = function(gccallback) {
-    var customersSequenceObj = new PatientSequence();
-    customersSequenceObj.save(function(err) {
+exports.generatedCustomerSequence = function(gccallback) {
+    var patientSequenceObj = new PatientSequence();
+    patientSequenceObj.save(function(err) {
         if (err) {
             gccallback(err, null);
         } else {
-            PatientSequence.findById({ "_id": customersSequenceObj["_id"] }).exec(function(err, incDoc) {
+            PatientSequence.findById({ "_id": patientSequenceObj["_id"] }).exec(function(err, incDoc) {
                 if (err) {
                     gccallback(err, null);
                 } else {
-                    var customerSequence = ("AKCC").concat(pad(10, incDoc["CustomerSequence"], "0"));
-                    gccallback(null, customerSequence)
+                    var patientSequence = ("UHID").concat(pad(5, incDoc["patientSequence"], "0"));
+                    var addmissionSequence=("ADD").concat(pad(5,incDoc["addmissionSequence"],"0"))
+                    gccallback(null, patientSequence,addmissionSequence)
                 }
             })
-            /*customersSequenceObj.nextCount(function (err, count) {
-            	if (err) {
-            		gccallback(err, null);
-            	}
-            	else {
-            		var customerSequence = ("AKCC").concat(pad(10, count, "0"));
-            		gccallback(null, customerSequence)
-            	}
-            })*/
         }
     })
 }

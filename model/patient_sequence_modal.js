@@ -4,8 +4,10 @@ var Patient=require('mongoose-auto-increment');
 var autoIncrement=require('mongoose-auto-increment');
 autoIncrement.initialize(db.db);
 
+
 var PatientSequenceSchema=new mongoose.Schema({
-    patientSequence:Number
+    patientSequence:Number,
+    addmissionSequence:Number
 })
 
 PatientSequenceSchema.plugin(autoIncrement.plugin,{
@@ -14,5 +16,13 @@ PatientSequenceSchema.plugin(autoIncrement.plugin,{
     startAt: 0,
     incrementBy: 1
 });
+
+PatientSequenceSchema.plugin(autoIncrement.plugin,{
+    model: 'PatientSequence',
+    field: 'addmissionSequence',
+    startAt: 0,
+    incrementBy: 1
+});
+
 
 module.exports=mongoose.model('PatientSequence',PatientSequenceSchema);
