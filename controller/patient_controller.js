@@ -2,6 +2,7 @@ var Patient=require('../model/patient_model');
 var Hospital=require('../model/hospital_model');
 var Billing=require('../model/billing_modal')
 var mongoose=require('mongoose')
+var billingQuery=require('../quries/billing_queries')
 exports.savePatient=function(req,res,next){
     var data=req.body;
     data._id=new mongoose.Types.ObjectId;
@@ -191,27 +192,50 @@ exports.billinggg=function(req,res,next){
          if(err){
              console.log('err')
          }else{
-             if(result){
-                 Billing.create({
-                    patient_id:data.patid,
-                    hospital_id:data.hos_id,
-                    services:data.billids,
-                    total:data.total,
-                    billing_date:data.billing_date
+            //  if(result){
+            //      Billing.create({
+            //         patient_id:data.patid,
+            //         hospital_id:data.hos_id,
+            //         services:data.billids,
+            //         total:data.total,
+            //         billing_date:data.billing_date
 
-                 },function(err,bill){
-                     if(err){
-                         res.send(err)
-                     }else{
-                        Billing.findByIdAndUpdate(bill._id,{invoiceid:prefix+bill.billid}).exec(function(err,billu){
-                            if(bill){
-                                res.send(billu)
+            //      },function(err,bill){
+            //          if(err){
+            //              res.send(err)
+            //          }else{
+            //             Billing.findByIdAndUpdate(bill._id,{invoiceid:prefix+bill.billid}).exec(function(err,billu){
+            //                 if(bill){
+            //                     res.send(billu)
+            //                 }
+            //             })
+            //          }
+            //      })
+                 
+            //  }
+            if(result){
+                billingQuery.generatedBillingSequence(function(err,sequence){
+                    if(err){
+                        res.send('billing sequence not generated')
+                    }else{
+                        var bill=new Billing({
+                            patient_id:data.patid,
+                            hospital_id:data.hos_id,
+                            services:data.billids,
+                            total:data.total,
+                            billing_date:data.billing_date,
+                            BID:sequence
+                        })
+                        bill.save(function(err,bill){
+                            if(!err && bill){
+                                res.send(bill)
+                            }else{
+                                res.send('billing not created due to error')
                             }
                         })
-                     }
-                 })
-                 
-             }
+                    }
+                })
+            }
          }
      })
 

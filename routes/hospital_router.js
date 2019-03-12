@@ -23,4 +23,9 @@ router.post('/getallService',HospitalController.getAllService);
 
 router.post('/edit',HospitalController.edit);
 
+router.post('/savePrefix',HospitalController.savePrefix);
+
+router.post('/saveSuffix',HospitalController.saveSuffix);
+
+
 module.exports = router;

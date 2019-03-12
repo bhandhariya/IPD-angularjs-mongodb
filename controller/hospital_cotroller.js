@@ -113,3 +113,29 @@ exports.findprefix=function(req,res,next){
         }
     })
 }
+
+
+exports.savePrefix=function(req,res,next){
+    var data=req.body;
+    Hospital.findByIdAndUpdate(data.hos,{prefix:data.prefix}).exec(function(err,hos){
+        if(!err && hos){
+            console.log(hos)
+            res.send('prefix added successfully')
+        }else{
+            res.send('not done ')
+        }
+    })
+}
+
+
+exports.saveSuffix=function(req,res,next){
+    var data=req.body;
+    Hospital.findByIdAndUpdate(data.hos,{suffix:data.suffix}).exec(function(err,hos){
+        if(!err && hos){
+            console.log(hos)
+            res.send('Suffix added successfully')
+        }else{
+            res.send('not done ')
+        }
+    })
+}

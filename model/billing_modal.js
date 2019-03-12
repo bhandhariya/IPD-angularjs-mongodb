@@ -10,7 +10,8 @@ var BillingSchema=new mongoose.Schema({
     total:{type:Number,required:true},
     billid:{type:Number},
     services:[String],
-    invoiceid:{type:String}
+    invoiceid:{type:String},
+    BID:String
     
 },{
     toObject:{virtuals:true},

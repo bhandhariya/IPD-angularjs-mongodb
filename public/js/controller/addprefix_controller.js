@@ -19,7 +19,11 @@ $scope.saveSuffix=function(){
         suffix:$scope.suffix,
         hos:$scope.hospitalid
     }
-    console.log(obj)
+    $http.post('http://localhost:3000/hospital/saveSuffix',obj).then(function successCallback(responce){
+        console.log(responce)
+    },function errorCallback(responce){
+        console.log(responce)
+    })
 }
 
 })

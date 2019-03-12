@@ -24,6 +24,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
         }
         $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
+              
               $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
           },function errorCallback(response){
               console.log(response)
@@ -36,6 +37,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           }
           $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
+              console.log($scope.dayendData)
               $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
           },function errorCallback(response){
               console.log(response)
