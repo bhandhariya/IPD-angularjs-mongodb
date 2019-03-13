@@ -38,7 +38,8 @@ var PatientSchema=new mongoose.Schema({
     income:{type:String},
     occupation:{type:String},
     UHID:String,
-    Addmission_no:String
+    Addmission_no:String,
+    bills:[String]
     
 },{
     toObject:{virtuals:true},
@@ -64,6 +65,15 @@ PatientSchema.virtual('billingdetail',{
     foreignField:'_id',
     justOne:false
 })
+
+PatientSchema.virtual('billlllll',{
+    ref:'Billing',
+    localField:'bills',
+    foreignField:'_id',
+    justOne:false
+})
+
+
 
 
 

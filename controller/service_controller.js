@@ -64,16 +64,27 @@ exports.addServicestoPatient=function(req,res,next){
 exports.update=function(req,res,next){
     var data=req.body;
     console.log(data)
-    Service.findOneAndUpdate(data.id,{
-        $set:{
-            name:data.name,
-            charge:data.charge
-        }
-    }).exec(function(err,pat) {
-        if(!err && pat){
-            res.send('service updated')
+    // Service.findOneAndUpdate(data.id,{
+    //     $set:{
+    //         name:data.name,
+    //         charge:data.charge
+    //     }
+    // },{
+    //     new:true
+    // }).exec(function(err,pat) {
+    //     if(!err && pat){
+    //         res.send('service updated')
+    //     }else{
+    //         return console.log(err)
+    //     }
+    // })
+    Service.updateOne({_id:data.id},{$set:{name:data.name,charge:data.charge}}).exec(function(err,service){
+        if(!err && service){
+            console.log(service)
+            res.send('Service Updated')
         }else{
-            return console.log(err)
+            console.log(err)
+            res.send(err)
         }
     })
 }

@@ -1,4 +1,4 @@
-angular.module('myApp',['register','addservice','billing','summury','prefix','dashborad','patient','ngRoute','ngMaterial']).config(
+angular.module('myApp',['register','addservice','billing','summury','prefix','dashborad','patient','ngRoute','ngMaterial','toastr']).config(
   function($routeProvider){
     $routeProvider.
     when("/addservice",{

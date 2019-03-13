@@ -3,7 +3,9 @@ var router = express.Router();
 var Patient=require('../model/patient_model');
 var PatientSequence=require('../model/patient_sequence_modal');
 var PatientQuery=require('../quries/customer_quries')
-var mongoose=require('mongoose')
+var mongoose=require('mongoose');
+var Hospital=require('../model/hospital_model');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.send('ok it is working')
@@ -13,7 +15,7 @@ router.post('/create', function(req, res, next) {
   var data=req.body;
   PatientQuery.generatedCustomerSequence(function(err,sequence,addmis){
     if(err){
-      res.send('seqnce not generated')
+      res.send(err)
     }else{
       var patient=new Patient({
         _id:new mongoose.Types.ObjectId,
@@ -48,7 +50,17 @@ router.post('/create', function(req, res, next) {
         if(err){
           res.send(err)
         }else{
-          res.send(pat)
+          if(pat){
+            Hospital.findByIdAndUpdate(pat.hospital_id,{
+              $push:{patient_id:pat._id}
+          }).exec(function(err,result){
+            if(result && !err){
+              res.send(result)
+            }else{
+              res.send(err)
+            }
+          })
+          }
         }
       })
     }

@@ -75,8 +75,8 @@ exports.billingbetweentwodays=function(req,res,next){
     console.log(data);
     Billing.find({
         billing_date:{
-            $gt:data.startDate,
-            $lt:data.endDate
+            $gte:data.startDate,
+            $lte:data.endDate
         }
     }).populate('hospital').populate('srervice').populate('patient').exec(function(err,result){
         if(!err && result){
@@ -87,6 +87,42 @@ exports.billingbetweentwodays=function(req,res,next){
             res.send('error in finding day end data report please check after some time ')
             console.log(err)
         }
+    })
+
+}
+
+exports.searchbyBillId=function(req,res,next){
+    var data=req.body;
+    Billing.findOne({BID:data.id}).populate('patient').exec(function(err,bill){
+        if(!err && bill){
+            res.send(bill)
+        }else{
+            res.send(err)
+        }
+    })
+}
+
+
+
+
+exports.getAllBillingTillToday=function(req,res,next){
+    Billing.find().populate('patient').exec(function(err,bill){
+        res.send(bill)
+    })
+}
+
+exports.searchbyBillName=function(req,res,next){
+    var data=req.body;
+    // Billing.find().populate({
+    //     path:"patient",
+    //     match:{
+    //         first_name:data.name
+    //     }
+    // }).exec(function(err,pat){
+    //     res.send(pat)
+    // })
+    Patient.find({first_name:data.name}).populate('billlllll').exec((err,pat)=>{
+        res.send(pat)
     })
 
 }

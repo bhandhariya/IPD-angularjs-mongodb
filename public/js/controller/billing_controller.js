@@ -1,4 +1,4 @@
-angular.module('billing',[]).controller('billingctrl',function($scope,$http,$filter){
+angular.module('billing',['toastr']).controller('billingctrl',function($scope,$http,$filter,toastr){
     $scope.name='raja';
     $scope.hos_id='5c861ec82df421f8c5fc308d';
     $scope.data;
@@ -42,14 +42,14 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             id:$scope.pid
         }
         $http.post('http://localhost:3000/patient/getonePatientDetail',obj2).then(function successCallback(response){
-            $scope.detailsosService=(response.data.BillingDetails)      
-             
+            $scope.detailsosService=(response.data.BillingDetails)
+
 
         },function errorCallback(response){
             console.log(response)
         })
     }
-    
+
 
     $scope.addnewcategories=function(){
         var serviceid= $scope.somevalye._id;
@@ -59,7 +59,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             hospitalid:$scope.hos_id,
           }
           $http.post('http://localhost:3000/patient/addServiceToPatient',obj).then(function successCallback(response){
-            
+            toastr.success("Service Added to Patient")
             $scope.dtttt=response.data;
            var raja=($scope.dtttt.BillingDetails)
            $scope.tottal=raja.reduce((sum,item)=> sum+item.charge,0);
@@ -71,7 +71,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             console.log(response)
         })
 
-       
+
 
     }
 
@@ -84,14 +84,15 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             billing_date:$filter('date')(new Date(),'yyyy-MM-dd')
           }
           $http.post('http://localhost:3000/patient/billinggg',obj).then(function successCallback(response){
-            
+
             $scope.billigdata=response.data;
             console.log($scope.billigdata)
             $scope.tottal=""
            if($scope.billigdata){
-               alert('billing completed print screen remaining')
+               toastr.success("billing completed ");
+               toastr.warning("print screen remaining")
                $scope.getOnePat()
-               
+
            }
            $scope.getOnePat()
 
@@ -105,7 +106,7 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
             patid:this.pid
         }
         $http.post('http://localhost:3000/patient/deleteservicebyid',obj).then(function successCallback(response){
-            
+
             $scope.getOnePat();
 
         },function errorCallback(response){
@@ -115,15 +116,15 @@ angular.module('billing',[]).controller('billingctrl',function($scope,$http,$fil
 
     $scope.raja;
     $scope.saini;
-   
+
     $scope.demo=function(){
         $http.get('http://localhost:8080/hello').then(function successCallback(response){
-            
+
            console.log(response)
 
         },function errorCallback(response){
             console.log(response)
         })
     }
-     
+
  })

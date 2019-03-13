@@ -1,5 +1,5 @@
 angular
-  .module('patient', []).controller('patientRegistrationctrl',function($scope,$http) {
+  .module('patient', ['toastr']).controller('patientRegistrationctrl',function($scope,$http,toastr) {
     var self = this;
               // self.user={id:null,username:'',address:'',email:''};
               // self.id = 4;
@@ -30,9 +30,10 @@ angular
 
                   $http.post('http://localhost:3000/create',self.user).then(function successCallback(response){
                 if(response){
-                  alert('Patient Added')
+                  console.log(response)
+                  toastr.success(response.data)
                 }
-                self.reset();
+                // self.reset();
 
                   },function errorCallback(response){
                       console.log(response)

@@ -5,8 +5,8 @@
     <title>Search OPD Report</title>
     <link rel="stylesheet" href="/css/searchOPDReceipt.css">
   </head>
-  <body>
-    <div class="container">
+  <body >
+    <div ng-init="onload()" class="container">
       <div class="col-lg-8 col-md-11 col-sm-11 col-xs-11" style="margin-top: 10px;">
         <span class="textbold14">
           <a class="text-info" href="#!test">Search OPD Receipt</a>&nbsp;|&nbsp;
@@ -20,7 +20,7 @@
 <div id="i1" class="row">
   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
       <label class="form-label text-color ">Bill No.</label>
-      <input class="form-control" type="text" name="sear_bill" placeholder="Bill No." value="">
+      <input class="form-control" ng-model="billid" type="text" name="sear_bill" placeholder="Bill No." value="">
   </div>
 
   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
@@ -30,7 +30,7 @@
 
   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 ">
       <label class="form-label text-color ">Patient Name</label>
-      <input class="form-control" type="text" name="patient_name" placeholder="First Name" value="">
+      <input class="form-control" type="text" ng-model="name"   name="patient_name" placeholder="First Name" value="">
   </div>
 
   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
@@ -45,115 +45,127 @@
 
   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 text-color">
       <label class="form-label text-color ">&nbsp;</label>
-      <input type="submit" class="btn btn-sm btn-info form-control" value="Search">
+      <input type="submit" ng-click="SerrchByBillID()"  class="btn btn-sm btn-info form-control" value="Search">
   </div>
 
 </div>
 
 </div>
 
-<div class="container">
-  <div class="table-responsive box-shadow">
-	    <table width="100%" class="table table-condensed" border="0">
-		  <caption>
-			<a onclick="javascript:searchSample('Investigation');" href="#"><span class="label" style="background-color: #fbeee6;">Investigation&nbsp;</span></a>
-			<a onclick="javascript:searchSample('Consultation');" href="#"><span class="label" style="background-color:#e8f6f3 ;">Consultation&nbsp;</span></a>
-			<a onclick="javascript:searchSample('');" href="#"><span class="label" style="background-color:lightgray ;">All&nbsp;</span></a>
-		  </caption>		    <thead>
-			<tr class="textBold14">
-			    <th>Sr.&nbsp;No.</th>
-			    <th>Receipt No.
-			    </th><th>Bill No.</th>
-			    <th>UHID</th>
-			    <th>Patient Details</th>
-			    <th>Action</th>
-			</tr>
-		    </thead>
-
-		    <tbody>			   <tr class="text14" bgcolor="#fbeee6">
-				<td>1</td>
-				<td>RGRC18022424</td>
-				<td>OBL18022522</td>
-				<td>RG00007022</td>
-				<td>Mrs Meenu   <b>|</b> 28 Y/F</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022522','7021','RGRC18022424','1','chemlabor','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><span class="btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Cancelled</span>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#fbeee6">
-				<td>2</td>
-				<td>RGRC18022423</td>
-				<td>OBL18022521</td>
-				<td>RG00007266</td>
-				<td>Ms Rima Kumari  <b>|</b> 11 Y/F</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022521','7265','RGRC18022423','0','chemlabor','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022521','7265','RGRC18022423','2030.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022521','7265','RGRC18022423','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#fbeee6">
-				<td>3</td>
-				<td>RGRC18022422</td>
-				<td>OBL18022520</td>
-				<td>RG00007269</td>
-				<td>Mr Sanjana   <b>|</b> 21 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022520','7268','RGRC18022422','0','chemlabor','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022520','7268','RGRC18022422','350.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022520','7268','RGRC18022422','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#e8f6f3">
-				<td>4</td>
-				<td>RGRC18022421</td>
-				<td>OBL18022519</td>
-				<td>RG00007269</td>
-				<td>Mr Sanjana   <b>|</b> 21 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022519','7268','RGRC18022421','0','Consultation','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022519','7268','RGRC18022421','1199.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022519','7268','RGRC18022421','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:print_prescription('OBL18022519','7268','RGRC18022421','1');"><i class="fa fa-print" aria-hidden="true"> Prescribe</i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#fbeee6">
-				<td>5</td>
-				<td>RGRC18022420</td>
-				<td>OBL18022518</td>
-				<td>RG00007271</td>
-				<td>Mr Pradipta Chandra Das <b>|</b> 36 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022518','7270','RGRC18022420','0','chemlabor','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022518','7270','RGRC18022420','2600.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022518','7270','RGRC18022420','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#fbeee6">
-				<td>6</td>
-				<td>RGRC18022419</td>
-				<td>OBL18022517</td>
-				<td>RG00007271</td>
-				<td>Mr Pradipta Chandra Das <b>|</b> 36 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022517','7270','RGRC18022419','0','chemlabor','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022517','7270','RGRC18022419','72.00','notcancelled','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-default" href="javascript:refund_bill('OBL18022517','7270','RGRC18022419','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#e8f6f3">
-				<td>7</td>
-				<td></td>
-				<td>OBL18022516</td>
-				<td>RG00007271</td>
-				<td>Mr Pradipta Chandra Das <b>|</b> 36 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022516','7270','0','0','Consultation','2');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022516','7270','0','0','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022516','7270','0','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:print_prescription('OBL18022516','7270','0','2');"><i class="fa fa-print" aria-hidden="true"> Prescribe</i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#e8f6f3">
-				<td>8</td>
-				<td></td>
-				<td>OBL18022515</td>
-				<td>RG00007271</td>
-				<td>Mr Pradipta Chandra Das <b>|</b> 36 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022515','7270','0','0','Consultation','2');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022515','7270','0','0','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022515','7270','0','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:print_prescription('OBL18022515','7270','0','2');"><i class="fa fa-print" aria-hidden="true"> Prescribe</i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#e8f6f3">
-				<td>9</td>
-				<td>RGRC18022417</td>
-				<td>OBL18022513</td>
-				<td>RG00007270</td>
-				<td>Mr Rohan Kumar Das <b>|</b> 67 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022513','7269','RGRC18022417','0','Consultation','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022513','7269','RGRC18022417','300.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022513','7269','RGRC18022417','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:print_prescription('OBL18022513','7269','RGRC18022417','1');"><i class="fa fa-print" aria-hidden="true"> Prescribe</i></a>				</nobr>
-				</td>
-			    </tr>			   <tr class="text14" bgcolor="#e8f6f3">
-				<td>10</td>
-				<td>RGRC18022415</td>
-				<td>OBL18022511</td>
-				<td>RG00006968</td>
-				<td>Mr Sukhpal  Singh <b>|</b> 23 Y/M</td>
-				<td><nobr><a class="btn btn-sm btn-primary" href="javascript:print_duplicate_un('OBL18022511','6967','RGRC18022415','0','Consultation','1');"><i class="fa fa-print" aria-hidden="true"> Reprint </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:cancel_bill('OBL18022511','6967','RGRC18022415','300.00','','0','0.00');"><i class="fa fa-times" aria-hidden="true"> Cancel </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:refund_bill('OBL18022511','6967','RGRC18022415','1','159','&amp;categ_idno=&amp;sear_bill=&amp;patient_name=&amp;date_from=01/01/2019&amp;date_to=08/03/2019&amp;proce_status=');"><i class="fa fa-rupee" aria-hidden="true"> Refund </i></a><b>|</b><a class="btn btn-sm btn-primary" href="javascript:print_prescription('OBL18022511','6967','RGRC18022415','1');"><i class="fa fa-print" aria-hidden="true"> Prescribe</i></a>				</nobr>
-				</td>
-			    </tr>		    </tbody>		</table>
-	    </div>
+<div class="container" ng-show="allBill"  >
+  <div  class="table-hover table-striped " >
+	     <table class="table" >
+         <tr>
+           <td>SN</td>
+           <td>Bill No.</td>
+           <td>Billing date</td>
+           <td>Amount</td>
+           <td>Patient Details</td>
+           <td>Actions</td>
+         </tr>
+         <tr ng-repeat="item in BillingDetails" >
+           <td>
+             {{$index+1}}
+           </td>
+           <td>
+             {{item.BID}}
+           </td>
+           <td>
+             {{item.billing_date | date}}
+           </td>
+        <td>
+        {{item.total}}
+        </td>
+        <td>
+            {{item.patient[0].first_name}}  {{item.patient[0].last_name}}| {{item.patient[0].gender}}
+        </td>
+        <td>
+          <input type="button"  value="Print" class="btn btn-primary" >
+          <input type="button"  value="Refund" class="btn btn-primary" >
+          <input type="button"  value="Cancel" class="btn btn-primary" >
+        </td>
+         </tr>
+       </table>
+ </div>
 </div>
 
+
+<div class="container" ng-hide="allID"  >
+  <div  class="table-hover table-striped " >
+	     <table class="table" >
+         <tr>
+           <td>SN</td>
+           <td>Bill No.</td>
+           <td>Billing date</td>
+           <td>Amount</td>
+           <td>Patient Details</td>
+           <td>Actions</td>
+         </tr>
+         <tr  >
+           <td>
+             1
+           </td>
+           <td>
+             {{BillingDetails.BID}}
+           </td>
+           <td>
+             {{BillingDetails.billing_date | date}}
+           </td>
+        <td>
+        {{BillingDetails.total}}
+        </td>
+        <td>
+            {{BillingDetails.patient[0].first_name}}  {{BillingDetails.patient[0].last_name}}| {{BillingDetails.patient[0].gender}}
+        </td>
+        <td>
+          <input type="button"  value="Print" class="btn btn-primary" >
+          <input type="button"  value="Refund" class="btn btn-primary" >
+          <input type="button"  value="Cancel" class="btn btn-primary" >
+        </td>
+         </tr>
+       </table>
+ </div>
+</div>
+
+
+<div class="container" ng-hide="allName"  >
+  <div  class="table-hover table-striped " >
+	     <table class="table" >
+         <tr>
+           <td>SN</td>
+           <td>Bill No.</td>
+           <td>Billing date</td>
+           <td>Amount</td>
+           <td>Patient Details</td>
+           <td>Actions</td>
+         </tr>
+         <tr ng-repeat="i in BillingDetails[0].billlllll" >
+           <td>
+             name
+           </td>
+           <td>
+             {{i.BID}}
+           </td>
+           <td>
+             {{i.billing_date | date}}
+           </td>
+        <td>
+        {{i.total}}
+        </td>
+        <td>
+            {{BillingDetails[0].first_name}}  {{BillingDetails[0].last_name}}| {{BillingDetails[0].gender}}
+
+
+        </td>
+        <td>
+          <input type="button"  value="Print" class="btn btn-primary" >
+          <input type="button"  value="Refund" class="btn btn-primary" >
+          <input type="button"  value="Cancel" class="btn btn-primary" >
+        </td>
+         </tr>
+       </table>
+ </div>
+</div>
 
   </body>
 </html>

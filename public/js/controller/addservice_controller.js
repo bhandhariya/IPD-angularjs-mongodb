@@ -1,4 +1,4 @@
-angular.module('addservice',[]).controller('addservicectrl',function($scope,$http){
+angular.module('addservice',['toastr']).controller('addservicectrl',function($scope,$http,toastr){
    $scope.name;
    $scope.HosPitalID="5c861ec82df421f8c5fc308d"
    $scope.namename;
@@ -13,7 +13,7 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         id:x
       }
       $http.post('http://localhost:3000/service/deletebyid',obj).then(function successCallBack(response){
-           
+            toastr.error('Deletion Complete')
             $scope.fetchAllPatients()
         },function errorCallBack(response){
             console.log(response)
@@ -26,33 +26,40 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
     //    $scope.newField =angular.copy(field);
     //    console.log($scope.newField)
     //    console.log(field)
-    $scope.id=field._id;
-    console.log($scope.id)
-    
+    $scope.id=field.id;
+    console.log(field);
+    console.log($scope.id);
+
+
    }
    $scope.saveField=function(){
-       if($scope.editing !==false){
+
         var obj={
             id:$scope.id,
             name:this.namename,
             charge:this.chargecharge
           }
+          console.log(obj);
           $http.post('http://localhost:3000/service/update',obj).then(function successCallBack(response){
-           
+
+            if(response){
+              toastr.success('Save Success')
+              // window.location.reload();
+            }
             $scope.fetchAllPatients()
         },function errorCallBack(response){
             console.log(response)
         })
-          
-        
+
+
         $scope.editing = false;
-       }
+
    }
    $scope.cancel = function() {
     if ($scope.editing !== false) {
-        
+
         $scope.editing = false;
-    } 
+    }
 }
    $scope.create=function(){
        var obj={
@@ -61,14 +68,14 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         name:$scope.name
        }
        $http.post('http://localhost:3000/service/createService',obj).then(function successCallBack(response){
-            alert('done')
+            toastr.success("Service Created SuccessFully!!!!!!!!!!")
             $scope.fetchAllPatients()
         },function errorCallBack(response){
             console.log(response)
         })
 
    }
-    
+
     $scope.onload=function(){
         this.getHospitalDetails();
         this.fetchAllPatients();
@@ -84,19 +91,19 @@ angular.module('addservice',[]).controller('addservicectrl',function($scope,$htt
         },function errorCallBack(response){
             console.log(response)
         })
-    } 
+    }
     $scope.fetchAllPatients=function(){
         var obj={
             id:$scope.HosPitalID
         }
         $http.post('http://localhost:3000/service/findall',obj).then(function successCallBack(response){
-            
+
             $scope.Services=(response.data)
         },function errorCallBack(response){
             console.log(response)
         })
-    }  
+    }
 
-    
-    
+
+
 })

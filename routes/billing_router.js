@@ -17,4 +17,10 @@ router.post('/getAllbilling',BillingController.getAllbilling);
 
 router.post('/billingbetweentwodays',BillingController.billingbetweentwodays);
 
+router.post('/searchbyBillId',BillingController.searchbyBillId);
+
+router.get('/getAllBillingTillToday',BillingController.getAllBillingTillToday);
+
+router.post('/searchbyBillName',BillingController.searchbyBillName);
+
 module.exports = router;

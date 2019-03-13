@@ -18,10 +18,12 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
           })
     }
     $scope.getDayBilling=function(){
-        var datttt=$filter('date')($scope.selectDate,'yyyy-MM-dd')
+        var datttt=$filter('date')($scope.endDate,'yyyy-MM-dd')
+      
         var obj={
             billing_date:datttt
         }
+        console.log(obj)
         $http.post('http://localhost:3000/billing/billingAtDayEnd',obj).then(function successCallback(response){
               $scope.dayendData=response.data;
               
@@ -55,6 +57,7 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
             startDate:startDate,
             endDate:endDate
         }
+        console.log(obj)
         $http.post('http://localhost:3000/billing/billingbetweentwodays',obj).then(function successCallback(response){
             $scope.dayendData=response.data;
             $scope.totolserviceAmount=$scope.dayendData.reduce((sum,item)=> sum+item.total,0);
@@ -70,14 +73,19 @@ angular.module('summury',[]).controller('summuryctrl',function($scope,$http,$fil
             startDate:startDate,
             endDate:endDate
         }
-        if(startDate===null && startDate===undefined){
-            $scope.gettoDayBilling();
-        }else if(startDate!=null && startDate!=undefined){
-           $scope.gettwoDayBilling();
-        }else if(startDate==null||undefined && endDate!=null||undefined){
+        // if(startDate===null && startDate===undefined){
+        //     $scope.gettoDayBilling();
+        // }else if(startDate!=null && startDate!=undefined){
+        //    $scope.gettwoDayBilling();
+        // }else if(startDate==null||undefined && endDate!=null||undefined){
+        //     $scope.getDayBilling()
+        // }else{
+        //     $scope.getDayBilling();
+        // }
+        if(endDate && !startDate){
             $scope.getDayBilling()
         }else{
-            $scope.getDayBilling();
+            $scope.gettwoDayBilling();
         }
     }
    

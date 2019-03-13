@@ -228,7 +228,13 @@ exports.billinggg=function(req,res,next){
                         })
                         bill.save(function(err,bill){
                             if(!err && bill){
-                                res.send(bill)
+                                Patient.findByIdAndUpdate(data.patid,{$push:{bills:bill._id}}).exec(function(errorr,resulttt){
+                                    if(!errorr && resulttt){
+                                        res.send(resulttt)
+                                    }else{
+                                        res.send(errorr)
+                                    }
+                                })
                             }else{
                                 res.send('billing not created due to error')
                             }
