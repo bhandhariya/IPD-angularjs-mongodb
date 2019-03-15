@@ -1,0 +1,45 @@
+<table ng-init="onload()"  class="table table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th>Search by Number</th>
+            <th>Search by Supplier Name</th>
+            <th>Search by Product Name</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" name="" value="" class="form-control" style="width:30%">
+          </td>
+          <td>
+            <input type="text" name="" value="" class="form-control" style="width:30%">
+          </td>
+          <td>
+            <input type="text" name="" value="" class="form-control" style="width:30%">
+          </td>
+        </tr>
+    </thead>
+    <tbody class="thead-light" >
+        <tr>
+            <th>Supplier Name</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+            <th>Product Supply</th>
+            <th>Day Visit</th>
+        </tr>
+        <tr ng-repeat="item in AllSuppliers" >
+          <td>{{item.name}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.address}}</td>
+          <td>{{item.company_supplied[0]}}</td>
+          <td>{{item.day_visit}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+              <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+     Add Supplier
+   </md-button>
+            </th>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Add Supplier</title>
+    <link rel="stylesheet" href="/css/newaddSupplier.css">
+  </head>
+  <body ng-controller="DialogController" >
+
+    <div class="container">
+            <div class="row">
+            <div class="col">
+            	<div class="panel panel-default">
+            		<div class="panel-heading">
+    			    		<h3 class="panel-title">Add Supplier<small></small></h3>
+    			 			</div>
+    			 			<div class="panel-body">
+    			    		<form role="form">
+    			    			<div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="text" name="first_name" id="first_name" ng-Model="supplier.name" class="form-control input-sm" placeholder="First Name">
+    			    					</div>
+    			    				</div>
+    			    			</div>
+                    <div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="text" name="address" id="address" class="form-control input-sm" ng-Model="supplier.address" placeholder="Address">
+    			    					</div>
+    			    				</div>
+    			    			</div>
+
+    			    			<div class="form-group">
+    			    				<input type="email" name="email" id="email" class="form-control input-sm" ng-Model="supplier.email" placeholder="Email Address">
+    			    			</div>
+
+                    <div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="text" name="phone" id="phone" class="form-control input-sm" ng-Model="supplier.phone" placeholder="phone">
+    			    					</div>
+    			    				</div>
+    			    			</div>
+                    <div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <textarea type="text" name="note" id="note" class="form-control input-sm" ng-Model="supplier.note"  placeholder="note"></textarea>
+    			    					</div>
+    			    				</div>
+    			    			</div>
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for=""></label>
+                            <select class="form-control input sm" ng-Model="supplier.day"  name="">
+                              <option value="Sunday">Sunday</option>
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thrusday">Thrusday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                            </select>
+                            <small id="helpId" class="form-text text-muted">Day Visit</small>
+</div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <label for=""></label>
+                            <select class="form-control input sm" ng-Model="supplier.company[0]"  name="">
+                              <option value="Parle G">Parle G</option>
+                              <option value="HUL">HUL</option>
+                              <option value="P&G">P&G</option>
+                              <option value="Colgate">Colgate</option>
+                            </select>
+                            <small id="helpId" class="form-text text-muted">Company Supplied</small>
+</div>
+                      </div>
+                    </div>
+
+
+
+    			    			<input type="submit" value="Add Supplier" ng-click="answer()" class="btn btn-info btn-block">
+
+    			    		</form>
+    			    	</div>
+    	    		</div>
+        		</div>
+        	</div>
+        </div>
+  </body>
+</html>
