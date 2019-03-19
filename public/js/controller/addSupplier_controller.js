@@ -3,6 +3,7 @@ angular
       $rootScope.onload=function() {
         $scope.find();
       }
+
       $scope.name="addSupplier"
       $scope.fullscreen=false;
       $scope.supplier={};
@@ -34,13 +35,24 @@ angular
           $scope.hide = function() {
             $mdDialog.hide();
           };
+          $scope.company;
 
           $scope.cancel = function() {
             $mdDialog.cancel();
           };
 
           $scope.answer = function(answer) {
-            $http.post('http://localhost:3000/supplier/createSupplier',$scope.supplier).then(function successCallback(response){
+            var obj={
+              name:this.supplier.name,
+              address:this.supplier.address,
+              email:this.supplier.email,
+              phone:this.supplier.phone,
+              note:this.supplier.note,
+              day_visit:this.supplier.day,
+              company_supplied:this.raja
+            }
+            console.log(obj)
+            $http.post('http://localhost:3000/supplier/createSupplier',obj).then(function successCallback(response){
               console.log(response);
               $mdDialog.hide(answer);
               $rootScope.onload();
@@ -49,7 +61,17 @@ angular
             })
 
           };
+          $scope.arr;
+          $scope.raja=[];
+          $scope.addCompany=function(){
+            // $scope.supplier.company=$scope.supplier.company.push($scope.company)
+            // console.log($scope.supplier.company)
+              $scope.raja.push(this.arr)
+              this.arr=""
+
+          }
         }
+
 
 
   })

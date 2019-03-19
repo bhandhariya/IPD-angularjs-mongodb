@@ -29,7 +29,11 @@
           <td>{{item.name}}</td>
           <td>{{item.phone}}</td>
           <td>{{item.address}}</td>
-          <td>{{item.company_supplied[0]}}</td>
+          <td>
+            <div ng-repeat="i in item.company_supplied">
+              {{i}}
+            </div>
+          </td>
           <td>{{item.day_visit}}</td>
         </tr>
     </tbody>

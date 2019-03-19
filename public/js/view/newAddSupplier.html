@@ -70,14 +70,16 @@
                     <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
-                            <label for=""></label>
-                            <select class="form-control input sm" ng-Model="supplier.company[0]"  name="">
+                            <label for="">Conpany Supplied</label>
+                            <!-- <select class="form-control input sm" ng-Model="supplier.company[0]"  name="">
                               <option value="Parle G">Parle G</option>
                               <option value="HUL">HUL</option>
                               <option value="P&G">P&G</option>
                               <option value="Colgate">Colgate</option>
-                            </select>
-                            <small id="helpId" class="form-text text-muted">Company Supplied</small>
+                            </select> -->
+                              <input type="text" ng-model="arr" name="" value="">
+                              <i class="fa fa-plus" ng-click="addCompany() " ></i>
+                            <small id="helpId" class="form-text text-muted" ng-repeat="i in raja"  >{{i}}</small>
 </div>
                       </div>
                     </div>

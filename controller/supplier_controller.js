@@ -11,8 +11,8 @@ exports.createSupplier=function(req,res,next){
         email:data.email,
         phone:data.phone,
         note:data.note,
-        day_visit:data.day,
-        company_supplied:data.company[0]
+        day_visit:data.day_visit,
+        company_supplied:data.company_supplied
     })   
     supplier.save(function(err,supp){
         if(!err && supp){
