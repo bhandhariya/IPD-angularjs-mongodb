@@ -1,0 +1,42 @@
+<table ng-init="onload()"  class="table table-dark">
+    <thead class="thead-light">
+        <tr>
+            <th>Search</th>
+            <th>
+              <input type="text" name="" placeholder="According to [ Product Code,Product Name]" value="" class="form-control" >
+            </th>
+            <th>
+              <input type="button" name="" class="btn btn-danger" value="Search">
+            </th>
+        </tr>
+    </thead>
+    <tbody class="thead-light" >
+        <tr>
+            <th>Product Name</th>
+            <th>Product Code</th>
+            <th>QTY/PCS</th>
+            <th>MRP</th>
+            <th>Selling Price</th>
+            <th>Action Button</th>
+        </tr>
+        <tr ng-repeat="item in product" >
+          <td>{{item.name}}</td>
+          <td>{{item.PID}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.mrp}}</td>
+          <td>{{item.selling_price}}</td>
+          <td>
+            <i class="fa fa-plus" >Add to Purchase Order</i>
+          </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+              <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+     Add Product
+   </md-button>
+            </th>
+        </tr>
+    </tfoot>
+</table>

@@ -19,6 +19,7 @@ var serviceRouter=require('./routes/service_router');
 var billingRouter=require('./routes/billing_router');
 var dashboardRouter=require('./routes/dashboard_router');
 var supplierRouter=require('./routes/supplier_controller')
+var productRouter=require('./routes/product_router')
 
 var app = express();
 
@@ -50,7 +51,7 @@ app.use('/service',serviceRouter);
 app.use('/billing',billingRouter);
 app.use('/dashboard',dashboardRouter);
 app.use('/supplier',supplierRouter)
-
+app.use('/product',productRouter)
 
 app.get('/',function(req,res){
     res.sendFile( __dirname + "/public/" + "index.html" );

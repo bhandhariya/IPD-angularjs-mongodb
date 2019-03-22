@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Add Supplier</title>
+    <link rel="stylesheet" href="/css/addProduct.css">
+  </head>
+  <body ng-controller="AddProductController" >
+
+    <div class="container">
+            <div class="row">
+            <div class="col">
+            	<div class="panel panel-default">
+            		<div class="panel-heading">
+    			    		<h3 class="panel-title">Add Product<small><i style="margin-left:50px" class="fas fa-times" ng-click="cancel()"  ></i></small></h3>
+    			 			</div>
+    			 			<div class="panel-body">
+
+    			    			<div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="text" name="first_name" id="first_name" ng-Model="supplier.name" class="form-control input-sm" placeholder="Product Name">
+    			    					</div>
+    			    				</div>
+    			    			</div>
+                    <!-- <div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="text" name="address" id="address" class="form-control input-sm" ng-Model="supplier.code" placeholder="Product Code">
+    			    					</div>
+    			    				</div>
+    			    			</div> -->
+
+    			    			<div class="form-group">
+    			    				<input type="text" name="email" id="email" class="form-control input-sm" ng-Model="supplier.description" placeholder="Short Description">
+    			    			</div>
+
+                    <div class="row">
+    			    				<div class="col-xs-12 col-sm-12 col-md-12">
+    			    					<div class="form-group">
+    			                <input type="number" name="phone" id="phone" class="form-control input-sm" ng-Model="supplier.qty" placeholder="Quantity">
+    			    					</div>
+    			    				</div>
+    			    			</div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <input type="text" name="first_name" id="first_name" ng-change="getDiscountPrice()" ng-Model="supplier.mrp" class="form-control input-sm" placeholder="MRP">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"   >
+                          <input type="text" ng-change="getDiscountPrice()"  name="first_name" id="first_name" ng-Model="supplier.sellingPrice" class="form-control input-sm" placeholder="Selling Price">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <!-- <input type="text" name="first_name" id="first_name" ng-Model="supplier.SupplierName" class="form-control input-sm" placeholder="Supplier Name"> -->
+                          <select ng-init="getAllSuppliers()" ng-model="supplier.supplierName" class="form-control" name="">
+                            <option value="">Select Supplier Name</option>
+                            <option ng-repeat="i in data" value="{{i._id}}">{{i.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group"   >
+                          <input type="text" ng-change="getSellingPrice()" name="first_name" id="first_name" ng-Model="supplier.discount" class="form-control input-sm" placeholder="Discount">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <input type="text" name="first_name" id="first_name" ng-Model="supplier.companyName" class="form-control input-sm" placeholder="Company Name">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <input type="text" name="first_name" id="first_name" ng-Model="supplier.minqty" class="form-control input-sm" placeholder="Minimum Quantity">
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+    			    			<input type="submit" value="Add Product" ng-click="answer()" class="btn btn-info btn-block">
+
+
+    			    	</div>
+    	    		</div>
+        		</div>
+        	</div>
+        </div>
+  </body>
+</html>

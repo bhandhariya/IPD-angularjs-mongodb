@@ -25,7 +25,8 @@
             <th>Product Supply</th>
             <th>Day Visit</th>
         </tr>
-        <tr ng-repeat="item in AllSuppliers" >
+        <tr ng-repeat="item in AllSuppliers" ng-click="gotoInvoice(item)" >
+
           <td>{{item.name}}</td>
           <td>{{item.phone}}</td>
           <td>{{item.address}}</td>

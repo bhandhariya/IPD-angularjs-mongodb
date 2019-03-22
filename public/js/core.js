@@ -61,6 +61,22 @@ angular.module('myApp',['register','addservice','billing','summury','prefix','da
       templateUrl : "/js/view/addSupplier.html",
       controller:'addSupplierctrl'
     }).
+    when("/product",{
+      templateUrl : "/js/view/product.html",
+      controller:'productctrl'
+    }).
+    when("/productbilling",{
+      templateUrl : "/js/view/productbill.html",
+      controller:'productbillctrl'
+    }).
+    when("/purchaseorder",{
+      templateUrl : "/js/view/purchaseorder.html",
+      controller:'purchaseorderctrl'
+    }).
+    when("/supplierinvoice/:sid",{
+      templateUrl : "/js/view/supplierinvoice.html",
+      controller:'supplierinvoicectrl'
+    }).
     otherwise({
       template : "<h1>None</h1><p>Nothing has been selected</p>"
     });

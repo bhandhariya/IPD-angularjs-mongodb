@@ -1,6 +1,6 @@
 angular
-  .module('pharmacy', ['addSupplier','ngMaterial']).controller('pharmacyctrl',function($scope,$http,$mdDialog) {
+  .module('pharmacy', ['addSupplier','product','productbill','purchaseorder','supplierinvoice','ngMaterial']).controller('pharmacyctrl',function($scope,$http,$mdDialog) {
       $scope.name="pharmacy";
-      
+
 
   })

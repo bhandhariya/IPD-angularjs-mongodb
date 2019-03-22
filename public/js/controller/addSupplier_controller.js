@@ -1,7 +1,10 @@
 angular
-  .module('addSupplier', ['ngMaterial']).controller('addSupplierctrl',function($scope,$http,$mdDialog,$rootScope) {
+  .module('addSupplier', ['ngMaterial']).controller('addSupplierctrl',function($scope,$http,$mdDialog,$rootScope,$location) {
       $rootScope.onload=function() {
         $scope.find();
+      }
+      $scope.gotoInvoice=function(i) {
+         $location.path('/supplierinvoice/'+ i._id)
       }
 
       $scope.name="addSupplier"
