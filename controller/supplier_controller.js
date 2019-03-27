@@ -32,3 +32,13 @@ exports.findAllSuppliers=function(req,res,next){
         }
     })
 }
+
+exports.findByID=function(req,res,next){
+    Supplier.findById(req.body.id).exec(function(err,supp){
+        if(!err && supp){
+            res.send(supp)
+        }else{
+            res.send(err)
+        }
+    })
+}

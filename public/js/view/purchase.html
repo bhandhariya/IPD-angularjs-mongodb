@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html  lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Purchase</title>
+  <style media="screen">
+    md-input-container{
+
+    }
+  </style>
+  </head>
+  <body  >
+
+    <table ng-init="onload()" class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <td style="background-color:blue" ><h3>Search</h3></td>
+          <td>
+            <input type="text" name="" placeholder="According to [ Product Code,Product Name, Barcode]" class="form-control" value="">
+          </td>
+          <td style="background-color:blue;text-align:center;width:25%" colspan="4" id="th1" >
+          <h3  >{{Supplier.name}}</h3>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color:gray" >
+          <td>Product Name</td>
+          <td>Product Code</td>
+          <td>QTY/PCS</td>
+          <td>Purchase Price</td>
+          <td>Amount</td>
+          <td>Action Button</td>
+        </tr>
+        <tr>
+          <td>Parley G 20gm</td>
+          <td>11098</td>
+          <td>24</td>
+          <td>4.5</td>
+          <td>108</td>
+          <td>
+            <i class="fas fa-plus-square"></i>
+          </td>
+
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <td><md-input-container class="md-block" flex-gt-sm>
+            <label>Invoice No</label>
+            <input ng-model="ino">
+          </md-input-container></td>
+          <td><md-input-container class="md-block" flex-gt-sm>
+              <label>Discount</label>
+              <input ng-model="discount">
+            </md-input-container></td>
+            <td><md-input-container class="md-block" flex-gt-sm>
+                <label>GST</label>
+                <input ng-model="GST">
+              </md-input-container></td>
+              <td><md-input-container class="md-block" flex-gt-sm>
+                  <label>Invoice Date</label>
+                  <input ng-model="InvoiceDate">
+                </md-input-container></td>
+                <td>
+                  Total Amount
+                </td>
+                <td>
+                  Rs=(Amount-Discount)+GST
+                </td>
+        <tr>
+
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr style="background-color:blue" >
+          <th id="th1" ></th>
+          <th id="th1"  >PO</th>
+          <th id="th1" >Payment</th>
+          <th id="th2"></th>
+          <th id="th2" ></th>
+          <th id="th2" ></th>
+        </tr>
+      </tfoot>
+    </table>
+
+  </body>
+</html>

@@ -1,1 +1,58 @@
-{{supplierID}}
+<!DOCTYPE html>
+<html  lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>upplier Invoice Wise Details</title>
+    <link rel="stylesheet" href="/css/supplierinvoice.css">
+  </head>
+  <body  >
+
+    <table ng-init="onload()" class="table table-light">
+      <thead class="thead-light">
+        <tr>
+          <td id="th1" ><h3 ng-click="getSupplierDetailsbyID()" >Search</h3></td>
+          <td>
+            <input type="text" name="" placeholder="According to [ Bill number,Bill Date,Amount]" class="form-control" value="">
+          </td>
+          <td colspan="4" id="th1" >
+          <h3  >{{Supplier.name}}</h3>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bill Number</td>
+          <td>Bill  Date</td>
+          <td>Bill Value</td>
+          <td>Paid</td>
+          <td>Balance</td>
+          <td>Days</td>
+        </tr>
+        <tr>
+          <td>IN001</td>
+          <td>31-01-2009</td>
+          <td>5000</td>
+          <td>4500</td>
+          <td>500</td>
+          <td>60</td>
+
+        </tr>
+        <td></td>
+        <tr>
+
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th id="th1" >Print Ledger</th>
+          <th id="th1" ng-click="gotopurchase()" >Payment</th>
+          <th id="th1" >Purchase</th>
+          <th id="th2"></th>
+          <th id="th2" ></th>
+          <th id="th2" ></th>
+        </tr>
+      </tfoot>
+    </table>
+
+  </body>
+</html>

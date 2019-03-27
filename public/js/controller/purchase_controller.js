@@ -1,13 +1,10 @@
 angular
-  .module('supplierinvoice', ['ngMaterial']).controller('supplierinvoicectrl',function($scope,$http,$mdDialog,$routeParams,$location) {
-
+  .module('purchase', ['ngMaterial']).controller('purchasectrl',function($scope,$http,$mdDialog,$routeParams) {
+      $scope.name="supplierinvoicectrl";
       $scope.supplierID=$routeParams.sid;
+      $scope.Supplier;
       $scope.onload=function() {
-        this.getSupplierDetailsbyID();
-      }
-      $scope.gotopurchase=function(){
-        $location.path('/purchase/'+$scope.supplierID)
-
+        $scope.getSupplierDetailsbyID();
       }
       $scope.getSupplierDetailsbyID=function() {
         var obj={
