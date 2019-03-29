@@ -64,3 +64,14 @@ exports.find=function(req,res,next){
         }
     })
 }
+
+exports.getAllProductsOfSupplier=function(req,res,next){
+    var data=req.body;
+    Product.find().where({supplier:data.id}).exec(function(err,pro){
+        if(!err && pro){
+            res.send(pro)
+        }else{
+            res.send(err)
+        }
+    })
+}

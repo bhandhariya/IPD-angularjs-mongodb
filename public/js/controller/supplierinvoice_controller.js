@@ -21,6 +21,31 @@ angular
         })
 
       }
+      $scope.paymentf=function(ev) {
+        $mdDialog.show({
+          controller:clickController,
+          templateUrl:'js/view/clickpayment.html',
+          parent:angular.element(document.body),
+          targetEvent:ev,
+          clickOutsideToClose:true,
+          fullscreen:$scope.customFullscreen
+        })
+        .then(function(answer) {
+            alert('done')
+        },function(){
+          alert('not done')
+        })
+      }
+      function clickController($scope,$http) {
+        $scope.mon;
+        $scope.checkbox=false;
+        $scope.hidecheckbox=function(){
+          $scope.checkbox=false;
+        }
+        $scope.showcheckbox=function() {
+          $scope.checkbox=true;
+        }
+      }
 
 
   })

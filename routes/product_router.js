@@ -9,7 +9,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/create',ProductController.create);
 
-router.get('/find', ProductController.find)
+router.get('/find', ProductController.find);
+
+router.post('/getAllProductsOfSupplier',ProductController.getAllProductsOfSupplier);
 
 
 module.exports = router;

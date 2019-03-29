@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      #dd{
+        width: 500px;
+        height: 500px;
+        background-color:lightblue;
+        border: 1px solid black;
+      }
+      #ddd{
+        margin: 25px;
+        height:450px;
+        border: 1px solid red;
+        background-color:white;
+      }
+    </style>
+    <title>payemnt </title>
+  </head>
+  <body>
+<div id="dd">
+  <div id="ddd">
+    <table class="table ">
+      <thead class="table-dark">
+        <tr>
+          <td>Raja</td>
+          <td>Select Bill</td>
+          <td>
+            <select  class="" name="">
+              <option value="">bill 1</option>
+              <option value="">bill 2</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Balance</td>
+          <td>100</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Last Payment</td>
+          <td>6500</td>
+          <td>02-2-2018</td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+          <td>Payment</td>
+          <td>
+            <input type="text" name="" class="form-control" value="">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cash">Cash</label>
+            <input type="radio" name="money" ng-model="mon" ng-click="hidecheckbox()" value="cash" >
+          </td>
+          <td><label for="check">Check</label>
+          <input type="radio" name="money" ng-model="mon" ng-click="showcheckbox()"  value="check" >
+          </td>
+        </tr>
+        <tr ng-show="checkbox" >
+            <td>
+              <div class="form-group">
+                <label for="">Check No.</label>
+                <input type="text"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <label for="">Check Date</label>
+                <input type="text"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <label for="">Issue Date</label>
+                <input type="text"
+                  class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+            </td>
+        </tr>
+
+      </tbody>
+      <tfoot class="table-dark">
+        <tr>
+          <td>Save</td>
+          <td>Print</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+  </body>
+</html>

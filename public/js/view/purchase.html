@@ -32,12 +32,12 @@
           <td>Amount</td>
           <td>Action Button</td>
         </tr>
-        <tr>
-          <td>Parley G 20gm</td>
-          <td>11098</td>
-          <td>24</td>
-          <td>4.5</td>
-          <td>108</td>
+        <tr ng-repeat="p in Product" >
+          <td>{{p.name}}</td>
+          <td>{{p.PID}}</td>
+          <td>{{p.quantity}}</td>
+          <td>{{p.selling_price}}</td>
+          <td>{{p.quantity*p.selling_price}}</td>
           <td>
             <i class="fas fa-plus-square"></i>
           </td>
