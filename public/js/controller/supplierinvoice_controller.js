@@ -46,6 +46,24 @@ angular
           $scope.checkbox=true;
         }
       }
+      $scope.invoiceView=function(ev) {
+        $mdDialog.show({
+          controller:invoiceviewController,
+          templateUrl:'js/view/invoiceview.html',
+          parent:angular.element(document.body),
+          targetEvent:ev,
+          clickOutsideToClose:true,
+          fullscreen:$scope.customFullscreen
+        })
+        .then(function(answer) {
+            alert('done')
+        },function(){
+          alert('not done')
+        })
+      }
+      function invoiceviewController($scope,$http) {
+
+      }
 
 
   })

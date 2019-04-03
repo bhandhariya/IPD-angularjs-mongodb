@@ -75,3 +75,18 @@ exports.getAllProductsOfSupplier=function(req,res,next){
         }
     })
 }
+
+exports.findByName=function(req,res,next){
+    var data=req.body;
+    console.log(data);
+    Product.find({name:{
+        $regex:data.name
+    }}).exec(function(err,pat) {
+        if(!err && pat){
+            res.send(pat)
+        }else{
+            res.send('no Product Find With this Name')
+        }
+    })
+
+}

@@ -32,16 +32,24 @@
           <td>Amount</td>
           <td>Action Button</td>
         </tr>
+        <tr >
+        <td>
+          <input type="text" ng-change="findProductByName()" ng-model="proName" >
+        </td>
         <tr ng-repeat="p in Product" >
           <td>{{p.name}}</td>
           <td>{{p.PID}}</td>
-          <td>{{p.quantity}}</td>
-          <td>{{p.selling_price}}</td>
+          <td>
+            <input type="text" name="" value="" ng-model="p.quantity" >
+          </td>
+          <td>
+            <input type="text" name="" value="" ng-model="p.selling_price" >
+          </td>
           <td>{{p.quantity*p.selling_price}}</td>
           <td>
-            <i class="fas fa-plus-square"></i>
+            <i class="fas fa-plus" ></i>
           </td>
-
+        </tr>
         </tr>
         <tr>
           <td></td>

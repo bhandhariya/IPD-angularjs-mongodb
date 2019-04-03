@@ -13,5 +13,7 @@ router.get('/find', ProductController.find);
 
 router.post('/getAllProductsOfSupplier',ProductController.getAllProductsOfSupplier);
 
+router.post('/findByName', ProductController.findByName);
+
 
 module.exports = router;
