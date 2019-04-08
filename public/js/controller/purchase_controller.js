@@ -43,6 +43,20 @@ angular
         console.log(response)
       })
       }
+      $scope.totol=0;
+      $scope.total;
+      $scope.billProduct=[];
+      $scope.addMed=function(p) {
+        this.billProduct.push(p);
+        $scope.meddbill=true;
+        $scope.total=p.quantity*p.selling_price;
+        $scope.totol=$scope.totol+$scope.total;
+        console.log($scope.totol);
+
+        console.log($scope.total);
+
+        console.log($scope.billProduct)
+      }
 
 
   })

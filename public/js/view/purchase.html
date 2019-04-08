@@ -47,12 +47,14 @@
           </td>
           <td>{{p.quantity*p.selling_price}}</td>
           <td>
-            <i class="fas fa-plus" ></i>
+            <i class="fas fa-plus" ng-click="addMed(p)" ></i>
           </td>
         </tr>
         </tr>
-        <tr>
-          <td></td>
+        <tr ng-show="meddbill" ng-repeat="pp in billProduct"  >
+          <td >{{pp.name}}</td>
+          <td>{{pp.quantity}}</td>
+          <td>{{total=pp.quantity*pp.selling_price}}</td>
         </tr>
         <td><md-input-container class="md-block" flex-gt-sm>
             <label>Invoice No</label>
@@ -70,8 +72,8 @@
                   <label>Invoice Date</label>
                   <input ng-model="InvoiceDate">
                 </md-input-container></td>
-                <td>
-                  Total Amount
+                <td ng-if="totol" >
+                  {{totol}}
                 </td>
                 <td>
                   Rs=(Amount-Discount)+GST
